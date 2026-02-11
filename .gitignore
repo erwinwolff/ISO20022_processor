@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/pain.008.001.02.ch.03.xsd
+/pain_008_Swiss-DD_Beispiel_1.xml
