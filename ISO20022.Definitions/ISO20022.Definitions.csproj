@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="IbanNet.DependencyInjection.ServiceProvider" Version="6.0.0" />
-    <PackageReference Include="Polly" Version="8.6.5" />
-  </ItemGroup>
-
 </Project>
