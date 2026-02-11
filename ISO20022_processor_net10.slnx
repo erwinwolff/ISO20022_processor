@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="ISO20022_processor_net10/ISO20022_processor_net10.csproj" />
+  <Project Path="Pipeline.Abstract/Pipeline.Abstract.csproj" />
+  <Project Path="Pipeline.Implementation/Pipeline.Implementation.csproj" />
+  <Project Path="Pipeline.Tests/Pipeline.Tests.csproj" />
+</Solution>
