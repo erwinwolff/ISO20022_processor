@@ -1,14 +1,613 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <TargetFrameworks>net10.0;net9.0;net8.0;net48;net481</TargetFrameworks>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Company>Erwin Wolff</Company>
+    <Copyright>MIT</Copyright>
+    <Description>All ISO20022 XSD schema's as .NET classes</Description>
+    <PackageProjectUrl>https://www.linkedin.com/in/erwin-wolff-b8a6947/</PackageProjectUrl>
+    <AutoGenerateBindingRedirects>True</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net10.0|AnyCPU'">
+    <IsTrimmable>True</IsTrimmable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0|AnyCPU'">
+    <IsTrimmable>True</IsTrimmable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0|AnyCPU'">
+    <IsTrimmable>True</IsTrimmable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net48|AnyCPU'">
+    <IsTrimmable>True</IsTrimmable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net481|AnyCPU'">
+    <IsTrimmable>True</IsTrimmable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0|AnyCPU'">
+    <IsTrimmable>True</IsTrimmable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0|AnyCPU'">
+    <IsTrimmable>True</IsTrimmable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0|AnyCPU'">
+    <IsTrimmable>True</IsTrimmable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net48|AnyCPU'">
+    <IsTrimmable>True</IsTrimmable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net481|AnyCPU'">
+    <IsTrimmable>True</IsTrimmable>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Camt\" />
+    <None Remove="Acmt\acmt.001.001.08.xsd" />
+    <None Remove="Acmt\acmt.002.001.08.xsd" />
+    <None Remove="Acmt\acmt.003.001.08.xsd" />
+    <None Remove="Acmt\acmt.005.001.06.xsd" />
+    <None Remove="Acmt\acmt.006.001.07.xsd" />
+    <None Remove="Acmt\acmt.007.001.05.xsd" />
+    <None Remove="Acmt\acmt.008.001.05.xsd" />
+    <None Remove="Acmt\acmt.009.001.04.xsd" />
+    <None Remove="Acmt\acmt.010.001.04.xsd" />
+    <None Remove="Acmt\acmt.011.001.04.xsd" />
+    <None Remove="Acmt\acmt.012.001.04.xsd" />
+    <None Remove="Acmt\acmt.013.001.04.xsd" />
+    <None Remove="Acmt\acmt.014.001.05.xsd" />
+    <None Remove="Acmt\acmt.015.001.04.xsd" />
+    <None Remove="Acmt\acmt.016.001.04.xsd" />
+    <None Remove="Acmt\acmt.017.001.04.xsd" />
+    <None Remove="Acmt\acmt.018.001.04.xsd" />
+    <None Remove="Acmt\acmt.019.001.04.xsd" />
+    <None Remove="Acmt\acmt.020.001.04.xsd" />
+    <None Remove="Acmt\acmt.021.001.04.xsd" />
+    <None Remove="Acmt\acmt.022.001.04.xsd" />
+    <None Remove="Acmt\acmt.023.001.04.xsd" />
+    <None Remove="Acmt\acmt.024.001.04.xsd" />
+    <None Remove="Acmt\acmt.027.001.05.xsd" />
+    <None Remove="Acmt\acmt.028.001.05.xsd" />
+    <None Remove="Acmt\acmt.029.001.05.xsd" />
+    <None Remove="Acmt\acmt.030.001.04.xsd" />
+    <None Remove="Acmt\acmt.031.001.05.xsd" />
+    <None Remove="Acmt\acmt.032.001.05.xsd" />
+    <None Remove="Acmt\acmt.033.001.02.xsd" />
+    <None Remove="Acmt\acmt.034.001.05.xsd" />
+    <None Remove="Acmt\acmt.035.001.02.xsd" />
+    <None Remove="Acmt\acmt.036.001.01.xsd" />
+    <None Remove="Acmt\acmt.037.001.02.xsd" />
+    <None Remove="Admi\admi.002.001.01.xsd" />
+    <None Remove="Admi\admi.004.001.02.xsd" />
+    <None Remove="Admi\admi.005.001.02.xsd" />
+    <None Remove="Admi\admi.006.001.01.xsd" />
+    <None Remove="Admi\admi.007.001.01.xsd" />
+    <None Remove="Admi\admi.009.001.02.xsd" />
+    <None Remove="Admi\admi.010.001.02.xsd" />
+    <None Remove="Admi\admi.011.001.01.xsd" />
+    <None Remove="Admi\admi.017.001.02.xsd" />
+    <None Remove="Admi\admi.024.001.01.xsd" />
+    <None Remove="Auth\auth.001.001.02.xsd" />
+    <None Remove="Auth\auth.002.001.02.xsd" />
+    <None Remove="Auth\auth.003.001.01.xsd" />
+    <None Remove="Auth\auth.012.001.02.xsd" />
+    <None Remove="Auth\auth.013.001.02.xsd" />
+    <None Remove="Auth\auth.014.001.02.xsd" />
+    <None Remove="Auth\auth.015.001.02.xsd" />
+    <None Remove="Auth\auth.016.001.03.xsd" />
+    <None Remove="Auth\auth.017.001.02.xsd" />
+    <None Remove="Auth\auth.018.001.04.xsd" />
+    <None Remove="Auth\auth.019.001.04.xsd" />
+    <None Remove="Auth\auth.020.001.04.xsd" />
+    <None Remove="Auth\auth.021.001.04.xsd" />
+    <None Remove="Auth\auth.022.001.04.xsd" />
+    <None Remove="Auth\auth.023.001.04.xsd" />
+    <None Remove="Auth\auth.024.001.04.xsd" />
+    <None Remove="Auth\auth.025.001.04.xsd" />
+    <None Remove="Auth\auth.026.001.04.xsd" />
+    <None Remove="Auth\auth.027.001.04.xsd" />
+    <None Remove="Auth\auth.028.001.01.xsd" />
+    <None Remove="Auth\auth.029.001.05.xsd" />
+    <None Remove="Auth\auth.030.001.04.xsd" />
+    <None Remove="Auth\auth.031.001.01.xsd" />
+    <None Remove="Auth\auth.032.001.01.xsd" />
+    <None Remove="Auth\auth.033.001.03.xsd" />
+    <None Remove="Auth\auth.034.001.01.xsd" />
+    <None Remove="Auth\auth.035.001.01.xsd" />
+    <None Remove="Auth\auth.036.001.03.xsd" />
+    <None Remove="Auth\auth.038.001.01.xsd" />
+    <None Remove="Auth\auth.039.001.01.xsd" />
+    <None Remove="Auth\auth.040.001.01.xsd" />
+    <None Remove="Auth\auth.041.001.01.xsd" />
+    <None Remove="Auth\auth.042.001.02.xsd" />
+    <None Remove="Auth\auth.043.001.01.xsd" />
+    <None Remove="Auth\auth.044.001.03_1.xsd" />
+    <None Remove="Auth\auth.045.001.03.xsd" />
+    <None Remove="Auth\auth.047.001.01.xsd" />
+    <None Remove="Auth\auth.048.001.01.xsd" />
+    <None Remove="Auth\auth.049.001.02.xsd" />
+    <None Remove="Auth\auth.050.001.01.xsd" />
+    <None Remove="Auth\auth.052.001.02.xsd" />
+    <None Remove="Auth\auth.053.001.01.xsd" />
+    <None Remove="Auth\auth.054.001.01.xsd" />
+    <None Remove="Auth\auth.055.001.01.xsd" />
+    <None Remove="Auth\auth.056.001.01.xsd" />
+    <None Remove="Auth\auth.057.001.02.xsd" />
+    <None Remove="Auth\auth.058.001.01.xsd" />
+    <None Remove="Auth\auth.059.001.02.xsd" />
+    <None Remove="Auth\auth.060.001.02.xsd" />
+    <None Remove="Auth\auth.061.001.02.xsd" />
+    <None Remove="Auth\auth.062.001.01.xsd" />
+    <None Remove="Auth\auth.063.001.01.xsd" />
+    <None Remove="Auth\auth.064.001.02.xsd" />
+    <None Remove="Auth\auth.065.001.01.xsd" />
+    <None Remove="Auth\auth.066.001.01.xsd" />
+    <None Remove="Auth\auth.067.001.01.xsd" />
+    <None Remove="Auth\auth.068.001.01.xsd" />
+    <None Remove="Auth\auth.069.001.02.xsd" />
+    <None Remove="Auth\auth.070.001.02.xsd" />
+    <None Remove="Auth\auth.071.001.02.xsd" />
+    <None Remove="Auth\auth.072.001.01.xsd" />
+    <None Remove="Auth\auth.076.001.01.xsd" />
+    <None Remove="Auth\auth.077.001.01.xsd" />
+    <None Remove="Auth\auth.078.001.02.xsd" />
+    <None Remove="Auth\auth.079.001.02.xsd" />
+    <None Remove="Auth\auth.080.001.02.xsd" />
+    <None Remove="Auth\auth.083.001.02.xsd" />
+    <None Remove="Auth\auth.084.001.02.xsd" />
+    <None Remove="Auth\auth.085.001.02.xsd" />
+    <None Remove="Auth\auth.086.001.02.xsd" />
+    <None Remove="Auth\auth.090.001.02.xsd" />
+    <None Remove="Auth\auth.091.001.03.xsd" />
+    <None Remove="Auth\auth.092.001.04.xsd" />
+    <None Remove="Auth\auth.094.001.02.xsd" />
+    <None Remove="Auth\auth.100.001.01.xsd" />
+    <None Remove="Auth\auth.101.001.01.xsd" />
+    <None Remove="Auth\auth.102.001.01.xsd" />
+    <None Remove="Auth\auth.105.001.01.xsd" />
+    <None Remove="Auth\auth.106.001.01.xsd" />
+    <None Remove="Auth\auth.107.001.02.xsd" />
+    <None Remove="Auth\auth.108.001.02.xsd" />
+    <None Remove="Auth\auth.109.001.02.xsd" />
+    <None Remove="Auth\auth.112.001.01.xsd" />
+    <None Remove="Auth\auth.113.001.01.xsd" />
+    <None Remove="Auth\auth.114.001.01.xsd" />
+    <None Remove="Caaa\caaa.001.001.14.xsd" />
+    <None Remove="Caaa\caaa.002.001.14.xsd" />
+    <None Remove="Caaa\caaa.003.001.14.xsd" />
+    <None Remove="Caaa\caaa.004.001.13.xsd" />
+    <None Remove="Caaa\caaa.005.001.14.xsd" />
+    <None Remove="Caaa\caaa.006.001.13.xsd" />
+    <None Remove="Caaa\caaa.007.001.14.xsd" />
+    <None Remove="Caaa\caaa.008.001.13.xsd" />
+    <None Remove="Caaa\caaa.009.001.13.xsd" />
+    <None Remove="Caaa\caaa.010.001.12.xsd" />
+    <None Remove="Caaa\caaa.011.001.14.xsd" />
+    <None Remove="Caaa\caaa.012.001.13.xsd" />
+    <None Remove="Caaa\caaa.013.001.13.xsd" />
+    <None Remove="Caaa\caaa.014.001.12.xsd" />
+    <None Remove="Caaa\caaa.015.001.06.xsd" />
+    <None Remove="Caaa\caaa.016.001.12.xsd" />
+    <None Remove="Caaa\caaa.017.001.12.xsd" />
+    <None Remove="Caaa\caaa.018.001.09.xsd" />
+    <None Remove="Caaa\caaa.019.001.08.xsd" />
+    <None Remove="Caaa\caaa.020.001.06.xsd" />
+    <None Remove="Caaa\caaa.021.001.06.xsd" />
+    <None Remove="Caaa\caaa.022.001.05.xsd" />
+    <None Remove="Caaa\caaa.023.001.05.xsd" />
+    <None Remove="Caaa\caaa.024.001.05.xsd" />
+    <None Remove="Caaa\caaa.025.001.05.xsd" />
+    <None Remove="Caaa\caaa.026.001.02.xsd" />
+    <None Remove="Caaa\caaa.027.001.02.xsd" />
+    <None Remove="Cafc\cafc.001.001.03.xsd" />
+    <None Remove="Cafc\cafc.002.001.03.xsd" />
+    <None Remove="Camt\camt.003.001.08.xsd" />
+    <None Remove="Camt\camt.004.001.10.xsd" />
+    <None Remove="Camt\camt.005.001.11.xsd" />
+    <None Remove="Camt\camt.006.001.11.xsd" />
+    <None Remove="Camt\camt.007.001.10.xsd" />
+    <None Remove="Camt\camt.008.001.11.xsd" />
+    <None Remove="Camt\camt.009.001.08.xsd" />
+    <None Remove="Camt\camt.010.001.09.xsd" />
+    <None Remove="Camt\camt.011.001.08.xsd" />
+    <None Remove="Camt\camt.012.001.08.xsd" />
+    <None Remove="Camt\camt.013.001.04.xsd" />
+    <None Remove="Camt\camt.014.001.05.xsd" />
+    <None Remove="Camt\camt.015.001.04.xsd" />
+    <None Remove="Camt\camt.016.001.04.xsd" />
+    <None Remove="Camt\camt.017.001.05.xsd" />
+    <None Remove="Camt\camt.018.001.05.xsd" />
+    <None Remove="Camt\camt.019.001.07.xsd" />
+    <None Remove="Camt\camt.020.001.04.xsd" />
+    <None Remove="Camt\camt.021.001.06.xsd" />
+    <None Remove="Camt\camt.023.001.07.xsd" />
+    <None Remove="Camt\camt.024.001.08.xsd" />
+    <None Remove="Camt\camt.025.001.09.xsd" />
+    <None Remove="Camt\camt.026.001.10.xsd" />
+    <None Remove="Camt\camt.027.001.10.xsd" />
+    <None Remove="Camt\camt.028.001.12.xsd" />
+    <None Remove="Camt\camt.029.001.13.xsd" />
+    <None Remove="Camt\camt.030.001.06.xsd" />
+    <None Remove="Camt\camt.031.001.07.xsd" />
+    <None Remove="Camt\camt.032.001.05.xsd" />
+    <None Remove="Camt\camt.033.001.07.xsd" />
+    <None Remove="Camt\camt.034.001.07.xsd" />
+    <None Remove="Camt\camt.035.001.06.xsd" />
+    <None Remove="Camt\camt.036.001.06.xsd" />
+    <None Remove="Camt\camt.037.001.10.xsd" />
+    <None Remove="Camt\camt.038.001.05.xsd" />
+    <None Remove="Camt\camt.039.001.06.xsd" />
+    <None Remove="Camt\camt.040.001.04.xsd" />
+    <None Remove="Camt\camt.041.001.04.xsd" />
+    <None Remove="Camt\camt.042.001.04.xsd" />
+    <None Remove="Camt\camt.043.001.04.xsd" />
+    <None Remove="Camt\camt.044.001.03.xsd" />
+    <None Remove="Camt\camt.045.001.03.xsd" />
+    <None Remove="Camt\camt.046.001.08.xsd" />
+    <None Remove="Camt\camt.047.001.08.xsd" />
+    <None Remove="Camt\camt.048.001.07.xsd" />
+    <None Remove="Camt\camt.049.001.07.xsd" />
+    <None Remove="Camt\camt.050.001.07.xsd" />
+    <None Remove="Camt\camt.051.001.07.xsd" />
+    <None Remove="Camt\camt.052.001.13.xsd" />
+    <None Remove="Camt\camt.053.001.13.xsd" />
+    <None Remove="Camt\camt.054.001.13.xsd" />
+    <None Remove="Camt\camt.055.001.12.xsd" />
+    <None Remove="Camt\camt.056.001.11.xsd" />
+    <None Remove="Camt\camt.057.001.08.xsd" />
+    <None Remove="Camt\camt.058.001.09.xsd" />
+    <None Remove="Camt\camt.059.001.08.xsd" />
+    <None Remove="Camt\camt.060.001.07.xsd" />
+    <None Remove="Camt\camt.061.001.02.xsd" />
+    <None Remove="Camt\camt.062.001.03.xsd" />
+    <None Remove="Camt\camt.063.001.02.xsd" />
+    <None Remove="Camt\camt.064.001.01.xsd" />
+    <None Remove="Camt\camt.065.001.01.xsd" />
+    <None Remove="Camt\camt.066.001.02.xsd" />
+    <None Remove="Camt\camt.067.001.02.xsd" />
+    <None Remove="Camt\camt.068.001.02.xsd" />
+    <None Remove="Camt\camt.069.001.05.xsd" />
+    <None Remove="Camt\camt.070.001.06.xsd" />
+    <None Remove="Camt\camt.071.001.05.xsd" />
+    <None Remove="Camt\camt.072.001.02.xsd" />
+    <None Remove="Camt\camt.073.001.02.xsd" />
+    <None Remove="Camt\camt.074.001.02.xsd" />
+    <None Remove="Camt\camt.075.001.02.xsd" />
+    <None Remove="Camt\camt.076.001.01.xsd" />
+    <None Remove="Camt\camt.077.001.01.xsd" />
+    <None Remove="Camt\camt.078.001.02.xsd" />
+    <None Remove="Camt\camt.079.001.02.xsd" />
+    <None Remove="Camt\camt.080.001.02.xsd" />
+    <None Remove="Camt\camt.081.001.02.xsd" />
+    <None Remove="Camt\camt.082.001.02.xsd" />
+    <None Remove="Camt\camt.083.001.02.xsd" />
+    <None Remove="Camt\camt.084.001.02.xsd" />
+    <None Remove="Camt\camt.085.001.02.xsd" />
+    <None Remove="Camt\camt.086.001.05.xsd" />
+    <None Remove="Camt\camt.087.001.09.xsd" />
+    <None Remove="Camt\camt.088.001.03.xsd" />
+    <None Remove="Camt\camt.101.001.02.xsd" />
+    <None Remove="Camt\camt.102.001.03.xsd" />
+    <None Remove="Camt\camt.103.001.03.xsd" />
+    <None Remove="Camt\camt.104.001.01.xsd" />
+    <None Remove="Camt\camt.105.001.03.xsd" />
+    <None Remove="Camt\camt.106.001.03.xsd" />
+    <None Remove="Camt\camt.107.001.02.xsd" />
+    <None Remove="Camt\camt.108.001.02.xsd" />
+    <None Remove="Camt\camt.109.001.02.xsd" />
+    <None Remove="Camt\camt.110.001.01.xsd" />
+    <None Remove="Camt\camt.111.001.02.xsd" />
+    <None Remove="Pacs\pacs.002.001.12.xsd" />
+    <None Remove="Pacs\pacs.002.001.15.xsd" />
+    <None Remove="Pacs\pacs.003.001.11.xsd" />
+    <None Remove="Pacs\pacs.004.001.14.xsd" />
+    <None Remove="Pacs\pacs.007.001.13.xsd" />
+    <None Remove="Pacs\pacs.008.001.13.xsd" />
+    <None Remove="Pacs\pacs.009.001.12.xsd" />
+    <None Remove="Pacs\pacs.010.001.06.xsd" />
+    <None Remove="Pacs\pacs.028.001.06.xsd" />
+    <None Remove="Pacs\pacs.029.001.02.xsd" />
+    <None Remove="Pain\pain.001.001.12.xsd" />
+    <None Remove="Pain\pain.002.001.14.xsd" />
+    <None Remove="Pain\pain.007.001.12.xsd" />
+    <None Remove="Pain\pain.008.001.11.xsd" />
+    <None Remove="Pain\pain.009.001.08.xsd" />
+    <None Remove="Pain\pain.010.001.08.xsd" />
+    <None Remove="Pain\pain.011.001.08.xsd" />
+    <None Remove="Pain\pain.012.001.08.xsd" />
+    <None Remove="Pain\pain.013.001.11.xsd" />
+    <None Remove="Pain\pain.014.001.11.xsd" />
+    <None Remove="Pain\pain.017.001.04.xsd" />
+    <None Remove="Pain\pain.018.001.04.xsd" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="Acmt\acmt.001.001.08.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.002.001.08.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.003.001.08.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.005.001.06.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.006.001.07.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.007.001.05.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.008.001.05.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.009.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.010.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.011.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.012.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.013.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.014.001.05.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.015.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.016.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.017.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.018.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.019.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.020.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.021.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.022.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.023.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.024.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.027.001.05.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.028.001.05.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.029.001.05.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.030.001.04.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.031.001.05.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.032.001.05.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.033.001.02.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.034.001.05.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.035.001.02.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.036.001.01.xsd" />
+    <EmbeddedResource Include="Acmt\acmt.037.001.02.xsd" />
+    <EmbeddedResource Include="Admi\admi.002.001.01.xsd" />
+    <EmbeddedResource Include="Admi\admi.004.001.02.xsd" />
+    <EmbeddedResource Include="Admi\admi.005.001.02.xsd" />
+    <EmbeddedResource Include="Admi\admi.006.001.01.xsd" />
+    <EmbeddedResource Include="Admi\admi.007.001.01.xsd" />
+    <EmbeddedResource Include="Admi\admi.009.001.02.xsd" />
+    <EmbeddedResource Include="Admi\admi.010.001.02.xsd" />
+    <EmbeddedResource Include="Admi\admi.011.001.01.xsd" />
+    <EmbeddedResource Include="Admi\admi.017.001.02.xsd" />
+    <EmbeddedResource Include="Admi\admi.024.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.001.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.002.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.003.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.012.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.013.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.014.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.015.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.016.001.03.xsd" />
+    <EmbeddedResource Include="Auth\auth.017.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.018.001.04.xsd" />
+    <EmbeddedResource Include="Auth\auth.019.001.04.xsd" />
+    <EmbeddedResource Include="Auth\auth.020.001.04.xsd" />
+    <EmbeddedResource Include="Auth\auth.021.001.04.xsd" />
+    <EmbeddedResource Include="Auth\auth.022.001.04.xsd" />
+    <EmbeddedResource Include="Auth\auth.023.001.04.xsd" />
+    <EmbeddedResource Include="Auth\auth.024.001.04.xsd" />
+    <EmbeddedResource Include="Auth\auth.025.001.04.xsd" />
+    <EmbeddedResource Include="Auth\auth.026.001.04.xsd" />
+    <EmbeddedResource Include="Auth\auth.027.001.04.xsd" />
+    <EmbeddedResource Include="Auth\auth.028.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.029.001.05.xsd" />
+    <EmbeddedResource Include="Auth\auth.030.001.04.xsd" />
+    <EmbeddedResource Include="Auth\auth.031.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.032.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.033.001.03.xsd" />
+    <EmbeddedResource Include="Auth\auth.034.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.035.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.036.001.03.xsd" />
+    <EmbeddedResource Include="Auth\auth.038.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.039.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.040.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.041.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.042.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.043.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.044.001.03_1.xsd" />
+    <EmbeddedResource Include="Auth\auth.045.001.03.xsd" />
+    <EmbeddedResource Include="Auth\auth.047.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.048.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.049.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.050.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.052.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.053.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.054.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.055.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.056.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.057.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.058.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.059.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.060.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.061.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.062.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.063.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.064.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.065.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.066.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.067.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.068.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.069.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.070.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.071.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.072.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.076.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.077.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.078.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.079.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.080.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.083.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.084.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.085.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.086.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.090.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.091.001.03.xsd" />
+    <EmbeddedResource Include="Auth\auth.092.001.04.xsd" />
+    <EmbeddedResource Include="Auth\auth.094.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.100.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.101.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.102.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.105.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.106.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.107.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.108.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.109.001.02.xsd" />
+    <EmbeddedResource Include="Auth\auth.112.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.113.001.01.xsd" />
+    <EmbeddedResource Include="Auth\auth.114.001.01.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.001.001.14.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.002.001.14.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.003.001.14.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.004.001.13.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.005.001.14.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.006.001.13.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.007.001.14.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.008.001.13.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.009.001.13.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.010.001.12.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.011.001.14.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.012.001.13.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.013.001.13.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.014.001.12.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.015.001.06.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.016.001.12.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.017.001.12.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.018.001.09.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.019.001.08.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.020.001.06.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.021.001.06.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.022.001.05.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.023.001.05.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.024.001.05.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.025.001.05.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.026.001.02.xsd" />
+    <EmbeddedResource Include="Caaa\caaa.027.001.02.xsd" />
+    <EmbeddedResource Include="Cafc\cafc.001.001.03.xsd" />
+    <EmbeddedResource Include="Cafc\cafc.002.001.03.xsd" />
+    <EmbeddedResource Include="Camt\camt.003.001.08.xsd" />
+    <EmbeddedResource Include="Camt\camt.004.001.10.xsd" />
+    <EmbeddedResource Include="Camt\camt.005.001.11.xsd" />
+    <EmbeddedResource Include="Camt\camt.006.001.11.xsd" />
+    <EmbeddedResource Include="Camt\camt.007.001.10.xsd" />
+    <EmbeddedResource Include="Camt\camt.008.001.11.xsd" />
+    <EmbeddedResource Include="Camt\camt.009.001.08.xsd" />
+    <EmbeddedResource Include="Camt\camt.010.001.09.xsd" />
+    <EmbeddedResource Include="Camt\camt.011.001.08.xsd" />
+    <EmbeddedResource Include="Camt\camt.012.001.08.xsd" />
+    <EmbeddedResource Include="Camt\camt.013.001.04.xsd" />
+    <EmbeddedResource Include="Camt\camt.014.001.05.xsd" />
+    <EmbeddedResource Include="Camt\camt.015.001.04.xsd" />
+    <EmbeddedResource Include="Camt\camt.016.001.04.xsd" />
+    <EmbeddedResource Include="Camt\camt.017.001.05.xsd" />
+    <EmbeddedResource Include="Camt\camt.018.001.05.xsd" />
+    <EmbeddedResource Include="Camt\camt.019.001.07.xsd" />
+    <EmbeddedResource Include="Camt\camt.020.001.04.xsd" />
+    <EmbeddedResource Include="Camt\camt.021.001.06.xsd" />
+    <EmbeddedResource Include="Camt\camt.023.001.07.xsd" />
+    <EmbeddedResource Include="Camt\camt.024.001.08.xsd" />
+    <EmbeddedResource Include="Camt\camt.025.001.09.xsd" />
+    <EmbeddedResource Include="Camt\camt.026.001.10.xsd" />
+    <EmbeddedResource Include="Camt\camt.027.001.10.xsd" />
+    <EmbeddedResource Include="Camt\camt.028.001.12.xsd" />
+    <EmbeddedResource Include="Camt\camt.029.001.13.xsd" />
+    <EmbeddedResource Include="Camt\camt.030.001.06.xsd" />
+    <EmbeddedResource Include="Camt\camt.031.001.07.xsd" />
+    <EmbeddedResource Include="Camt\camt.032.001.05.xsd" />
+    <EmbeddedResource Include="Camt\camt.033.001.07.xsd" />
+    <EmbeddedResource Include="Camt\camt.034.001.07.xsd" />
+    <EmbeddedResource Include="Camt\camt.035.001.06.xsd" />
+    <EmbeddedResource Include="Camt\camt.036.001.06.xsd" />
+    <EmbeddedResource Include="Camt\camt.037.001.10.xsd" />
+    <EmbeddedResource Include="Camt\camt.038.001.05.xsd" />
+    <EmbeddedResource Include="Camt\camt.039.001.06.xsd" />
+    <EmbeddedResource Include="Camt\camt.040.001.04.xsd" />
+    <EmbeddedResource Include="Camt\camt.041.001.04.xsd" />
+    <EmbeddedResource Include="Camt\camt.042.001.04.xsd" />
+    <EmbeddedResource Include="Camt\camt.043.001.04.xsd" />
+    <EmbeddedResource Include="Camt\camt.044.001.03.xsd" />
+    <EmbeddedResource Include="Camt\camt.045.001.03.xsd" />
+    <EmbeddedResource Include="Camt\camt.046.001.08.xsd" />
+    <EmbeddedResource Include="Camt\camt.047.001.08.xsd" />
+    <EmbeddedResource Include="Camt\camt.048.001.07.xsd" />
+    <EmbeddedResource Include="Camt\camt.049.001.07.xsd" />
+    <EmbeddedResource Include="Camt\camt.050.001.07.xsd" />
+    <EmbeddedResource Include="Camt\camt.051.001.07.xsd" />
+    <EmbeddedResource Include="Camt\camt.052.001.13.xsd" />
+    <EmbeddedResource Include="Camt\camt.053.001.13.xsd" />
+    <EmbeddedResource Include="Camt\camt.054.001.13.xsd" />
+    <EmbeddedResource Include="Camt\camt.055.001.12.xsd" />
+    <EmbeddedResource Include="Camt\camt.056.001.11.xsd" />
+    <EmbeddedResource Include="Camt\camt.057.001.08.xsd" />
+    <EmbeddedResource Include="Camt\camt.058.001.09.xsd" />
+    <EmbeddedResource Include="Camt\camt.059.001.08.xsd" />
+    <EmbeddedResource Include="Camt\camt.060.001.07.xsd" />
+    <EmbeddedResource Include="Camt\camt.061.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.062.001.03.xsd" />
+    <EmbeddedResource Include="Camt\camt.063.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.064.001.01.xsd" />
+    <EmbeddedResource Include="Camt\camt.065.001.01.xsd" />
+    <EmbeddedResource Include="Camt\camt.066.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.067.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.068.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.069.001.05.xsd" />
+    <EmbeddedResource Include="Camt\camt.070.001.06.xsd" />
+    <EmbeddedResource Include="Camt\camt.071.001.05.xsd" />
+    <EmbeddedResource Include="Camt\camt.072.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.073.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.074.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.075.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.076.001.01.xsd" />
+    <EmbeddedResource Include="Camt\camt.077.001.01.xsd" />
+    <EmbeddedResource Include="Camt\camt.078.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.079.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.080.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.081.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.082.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.083.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.084.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.085.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.086.001.05.xsd" />
+    <EmbeddedResource Include="Camt\camt.087.001.09.xsd" />
+    <EmbeddedResource Include="Camt\camt.088.001.03.xsd" />
+    <EmbeddedResource Include="Camt\camt.101.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.102.001.03.xsd" />
+    <EmbeddedResource Include="Camt\camt.103.001.03.xsd" />
+    <EmbeddedResource Include="Camt\camt.104.001.01.xsd" />
+    <EmbeddedResource Include="Camt\camt.105.001.03.xsd" />
+    <EmbeddedResource Include="Camt\camt.106.001.03.xsd" />
+    <EmbeddedResource Include="Camt\camt.107.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.108.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.109.001.02.xsd" />
+    <EmbeddedResource Include="Camt\camt.110.001.01.xsd" />
+    <EmbeddedResource Include="Camt\camt.111.001.02.xsd" />
+    <EmbeddedResource Include="Pacs\pacs.002.001.12.xsd" />
+    <EmbeddedResource Include="Pacs\pacs.002.001.15.xsd" />
+    <EmbeddedResource Include="Pacs\pacs.003.001.11.xsd" />
+    <EmbeddedResource Include="Pacs\pacs.004.001.14.xsd" />
+    <EmbeddedResource Include="Pacs\pacs.007.001.13.xsd" />
+    <EmbeddedResource Include="Pacs\pacs.008.001.13.xsd" />
+    <EmbeddedResource Include="Pacs\pacs.009.001.12.xsd" />
+    <EmbeddedResource Include="Pacs\pacs.010.001.06.xsd" />
+    <EmbeddedResource Include="Pacs\pacs.028.001.06.xsd" />
+    <EmbeddedResource Include="Pacs\pacs.029.001.02.xsd" />
+    <EmbeddedResource Include="Pain\pain.001.001.12.xsd" />
+    <EmbeddedResource Include="Pain\pain.002.001.14.xsd" />
+    <EmbeddedResource Include="Pain\pain.007.001.12.xsd" />
+    <EmbeddedResource Include="Pain\pain.008.001.11.xsd" />
+    <EmbeddedResource Include="Pain\pain.009.001.08.xsd" />
+    <EmbeddedResource Include="Pain\pain.010.001.08.xsd" />
+    <EmbeddedResource Include="Pain\pain.011.001.08.xsd" />
+    <EmbeddedResource Include="Pain\pain.012.001.08.xsd" />
+    <EmbeddedResource Include="Pain\pain.013.001.11.xsd" />
+    <EmbeddedResource Include="Pain\pain.014.001.11.xsd" />
+    <EmbeddedResource Include="Pain\pain.017.001.04.xsd" />
+    <EmbeddedResource Include="Pain\pain.018.001.04.xsd" />
+  </ItemGroup>
 
 </Project>
