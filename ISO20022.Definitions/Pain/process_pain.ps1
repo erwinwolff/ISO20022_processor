@@ -3,7 +3,7 @@ for ($i=0; $i -lt $files.Count; $i++) {
     $dirname = $files[$i].Name -replace ".xsd", ""
     $prepare = $dirname -replace "pain.", ""
     $prepare = $prepare -replace '\.', "_"
-    $namespace = "Iso20022.Pain_$prepare"
+    $namespace = "ISO20022.Pain_$prepare"
 
     Write-Host "Processing to $dirname with namespace $namespace"
 

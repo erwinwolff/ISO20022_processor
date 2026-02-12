@@ -1,15 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace ISO20022_processor_net10.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class HealthController : ControllerBase
+    [Route("api/[controller]/[action]")]
+    public class HealthController : Controller
     {
-        public IActionResult Get()
+        [Route("/api/health")]
+        public IActionResult Index()
         {
-            return Ok("Healthy");
+            return Ok("OK");
         }
     }
 }

@@ -16,6 +16,8 @@ namespace ISO20022_processor_net10
 
             builder.Services.AddControllers();
             builder.Services.AddOpenApi();
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddMvc();
 
             builder.Logging.ClearProviders();
 
