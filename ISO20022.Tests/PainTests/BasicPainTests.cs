@@ -1,4 +1,5 @@
 ﻿using ISO20022.Pain_001_001_12;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ISO20022.Tests.PainTests
 {

@@ -1,4 +1,6 @@
 ﻿using ISO20022.Validator;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading.Tasks;
 
 namespace ISO20022.Tests.AutomaticValidationTests
 {
@@ -8,6 +10,7 @@ namespace ISO20022.Tests.AutomaticValidationTests
         [TestInitialize]
         public void InitClass()
         {
+            // warm up the binary and load the XSDs into memory before running the tests
             XmlISOValidator xmlISOValidator = new XmlISOValidator();
         }
 

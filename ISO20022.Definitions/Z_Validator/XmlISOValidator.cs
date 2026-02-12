@@ -26,7 +26,7 @@ namespace ISO20022.Validator
             {
                 using (var stream = assembly.GetManifestResourceStream(resource))
                 {
-                    using (var reader = new System.IO.StreamReader(stream))
+                    using (var reader = new StreamReader(stream))
                     {
                         var xsdContent = reader.ReadToEnd();
                         xsdContents.Add(xsdContent);
