@@ -19,6 +19,8 @@ namespace ISO20022_processor_net10
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddMvc();
 
+            builder.Services.AddSingleton<ISO20022.Interfaces.IXmlISOValidator, ISO20022.Validator.XmlISOValidator>();
+
             builder.Logging.ClearProviders();
 
             builder.Host.UseSerilog();
