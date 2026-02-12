@@ -1,6 +1,7 @@
 ﻿using ISO20022.Validator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace ISO20022.Tests.AutomaticValidationTests
 {
@@ -12,6 +13,20 @@ namespace ISO20022.Tests.AutomaticValidationTests
         {
             // warm up the binary and load the XSDs into memory before running the tests
             XmlISOValidator xmlISOValidator = new XmlISOValidator();
+        }
+
+
+        [TestMethod]
+        [Ignore("This test is just to print out the loaded schemas and their namespaces, not an actual unit test.")]
+        public async Task AllSchemasIntoString_Success()
+        {
+            XmlISOValidator xmlISOValidator = new XmlISOValidator();
+            string xsdList = string.Empty;
+
+            foreach (XmlSchema schema in XmlISOValidator.Schemas.Schemas())
+            {
+                xsdList += $"{schema.TargetNamespace}\n";
+            }
         }
 
         [TestMethod]
