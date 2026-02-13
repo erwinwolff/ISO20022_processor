@@ -1,5 +1,6 @@
 ﻿using ISO20022.Validator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Schema;
 
@@ -27,6 +28,16 @@ namespace ISO20022.Tests.AutomaticValidationTests
             {
                 xsdList += $"{schema.TargetNamespace}\n";
             }
+        }
+
+        [TestMethod]
+        public async Task GetSchemaUrns_Method_Success()
+        {
+            XmlISOValidator xmlISOValidator = new XmlISOValidator();
+            var urns = xmlISOValidator.GetSchemaUrns();
+
+            Assert.IsNotNull(urns);
+            Assert.IsTrue(urns.Any());
         }
 
         [TestMethod]

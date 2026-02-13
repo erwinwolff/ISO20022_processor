@@ -27,13 +27,13 @@ namespace ISO20022_processor_net10
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.MapOpenApi();
             }
 
             app.Services.GetRequiredService<ILogger<Program>>().LogInformation("Starting ISO20022 processor...");
+            var init = app.Services.GetRequiredService<ISO20022.Interfaces.IXmlISOValidator>();
 
             app.UseHttpsRedirection();
 

@@ -53,10 +53,11 @@ namespace ISO20022.Validator
 
         public async Task<(bool, string)> AutomaticValidationAsync(string xmlContent)
         {
+            if (Schemas.Count == 0)
+                return (false, "No XSD schemas loaded in the validator");
+
             if (string.IsNullOrWhiteSpace(xmlContent))
-            {
                 return (false, "Empty Xml");
-            }
 
             XDocument xdoc;
             try
@@ -69,43 +70,50 @@ namespace ISO20022.Validator
             }
             
             var namespaceAttribute = string.Empty;
-            XmlDocument asset;
+            XmlReaderSettings settings = new XmlReaderSettings();
+            settings.ValidationType = ValidationType.Schema;
 
-            namespaceAttribute = xdoc.Root.Attributes().FirstOrDefault(a => a.IsNamespaceDeclaration).ToString();
+            namespaceAttribute = xdoc
+                .Root
+                .Attributes()
+                .FirstOrDefault(a => a.IsNamespaceDeclaration)
+                .ToString();
             namespaceAttribute = namespaceAttribute
                 .Replace("xmlns=\"", string.Empty)
                 .Replace("\"", string.Empty)
                 .Trim();
 
-            XmlReaderSettings settings = new XmlReaderSettings();
-
             foreach (XmlSchema schema in Schemas.Schemas())
-            {
                 if (schema.TargetNamespace == namespaceAttribute)
                     settings.Schemas.Add(schema);
-            }
 
             if (settings.Schemas.Count == 0)
-            {
                 return (false, "No matching XSD found for the provided ISO20022 message");
-            }
 
-            settings.ValidationType = ValidationType.Schema;
-
-            XmlReader reader = XmlReader.Create(new StringReader(xmlContent), settings);
-
-            asset = new XmlDocument();
-
-            try
+            using (XmlReader reader = XmlReader.Create(new StringReader(xmlContent), settings))
             {
-                asset.Load(reader);
-            }
-            catch(Exception ex)
-            {
-                return (false, ex.Message);
-            }
+                XmlDocument asset = new XmlDocument();
 
-            return (true, namespaceAttribute);
+                try
+                {
+                    asset.Load(reader);
+                }
+                catch (Exception ex)
+                {
+                    return (false, ex.Message);
+                }
+
+                return (true, namespaceAttribute);
+            }
+        }
+
+        public IEnumerable<string> GetSchemaUrns()
+        {
+            return Schemas.Schemas()
+                .Cast<XmlSchema>()
+                .Select(x => x.TargetNamespace)
+                .OrderBy(x => x)
+                .ToArray();
         }
     }
 }
