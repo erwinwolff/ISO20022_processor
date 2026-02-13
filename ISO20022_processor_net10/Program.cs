@@ -38,10 +38,10 @@ namespace ISO20022_processor_net10
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
+            app.UseStaticFiles();
 
             app.MapControllers();
-
+            app.MapFallbackToFile("/index.html");
 
             app.Run();
         }

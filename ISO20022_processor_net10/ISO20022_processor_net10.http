@@ -1,6 +1,0 @@
-@ISO20022_processor_net10_HostAddress = http://localhost:5010
-
-GET {{ISO20022_processor_net10_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

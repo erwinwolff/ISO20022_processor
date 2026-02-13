@@ -6,14 +6,14 @@ All XML schema files are considered property by the ISO 20022 committee, unless 
 
 All C# files derived from the XML schema files are automatically generated without human intervention.
 
-**USAGE**
+**USAGE VALIDATOR**
 
 Use the XmlISOValidator class to validate XML documents against the ISO 20022 schemas. The class provides methods to validate XML documents and returns validation results.
 
-            IXmlISOValidator xmlISOValidator = new XmlISOValidator();
-            var result = await xmlISOValidator.AutomaticValidationAsync(@"<XML FILE>");
+    IXmlISOValidator xmlISOValidator = new XmlISOValidator();
+    var result = await xmlISOValidator.AutomaticValidationAsync(@"<XML FILE>");
 
-            /// use the result tuple
+    /// use the result tuple
 
 **CONTRIBUTIONS**
 
