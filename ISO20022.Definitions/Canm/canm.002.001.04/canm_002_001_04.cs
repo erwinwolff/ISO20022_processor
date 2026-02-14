@@ -499,7 +499,7 @@ namespace ISO20022.Canm_002_001_04 {
         
         private string msgSeqNbField;
         
-        private byte[] msgChcksmInptValField;
+        private string msgChcksmInptValField;
         
         /// <remarks/>
         public string ColltnId {
@@ -532,8 +532,8 @@ namespace ISO20022.Canm_002_001_04 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] MsgChcksmInptVal {
+
+        public string MsgChcksmInptVal {
             get {
                 return this.msgChcksmInptValField;
             }

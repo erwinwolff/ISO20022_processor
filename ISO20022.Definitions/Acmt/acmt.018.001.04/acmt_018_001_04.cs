@@ -1353,7 +1353,7 @@ namespace ISO20022.Acmt_018_001_04 {
         
         private PartyIdentification272 ptyField;
         
-        private byte[] certField;
+        private string certField;
         
         /// <remarks/>
         public Modification1Code ModCd {
@@ -1387,8 +1387,8 @@ namespace ISO20022.Acmt_018_001_04 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] Cert {
+
+        public string Cert {
             get {
                 return this.certField;
             }
@@ -1755,7 +1755,7 @@ namespace ISO20022.Acmt_018_001_04 {
         
         private PartyIdentification272 ptyField;
         
-        private byte[] certField;
+        private string certField;
         
         /// <remarks/>
         public PartyIdentification272 Pty {
@@ -1768,8 +1768,8 @@ namespace ISO20022.Acmt_018_001_04 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] Cert {
+
+        public string Cert {
             get {
                 return this.certField;
             }

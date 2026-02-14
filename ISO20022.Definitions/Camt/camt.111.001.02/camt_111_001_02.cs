@@ -3340,7 +3340,7 @@ namespace ISO20022.Camt_111_001_02 {
         
         private bool dtOfVrfctnFieldSpecified;
         
-        private byte[] elctrncSgntrField;
+        private string elctrncSgntrField;
         
         private System.DateTime frstPmtDtField;
         
@@ -3418,8 +3418,8 @@ namespace ISO20022.Camt_111_001_02 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] ElctrncSgntr {
+
+        public string ElctrncSgntr {
             get {
                 return this.elctrncSgntrField;
             }
@@ -7056,7 +7056,7 @@ namespace ISO20022.Camt_111_001_02 {
         
         private PartyAndSignature3 dgtlSgntrField;
         
-        private byte[] nclsrField;
+        private string nclsrField;
         
         /// <remarks/>
         public DocumentType1Choice Tp {
@@ -7139,8 +7139,8 @@ namespace ISO20022.Camt_111_001_02 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] Nclsr {
+
+        public string Nclsr {
             get {
                 return this.nclsrField;
             }

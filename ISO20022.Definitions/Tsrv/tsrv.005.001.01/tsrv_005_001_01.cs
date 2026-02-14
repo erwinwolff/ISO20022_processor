@@ -698,7 +698,7 @@ namespace ISO20022.Tsrv_005_001_01 {
         
         private DocumentFormat1Choice frmtField;
         
-        private byte[] nclsrField;
+        private string nclsrField;
         
         private PartyAndSignature2 dgtlSgntrField;
         
@@ -733,8 +733,8 @@ namespace ISO20022.Tsrv_005_001_01 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] Nclsr {
+
+        public string Nclsr {
             get {
                 return this.nclsrField;
             }

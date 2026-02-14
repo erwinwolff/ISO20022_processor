@@ -536,7 +536,7 @@ namespace ISO20022.Caad_005_001_04 {
         
         private string msgSeqNbField;
         
-        private byte[] msgChcksmInptValField;
+        private string msgChcksmInptValField;
         
         /// <remarks/>
         public string ColltnId {
@@ -569,8 +569,8 @@ namespace ISO20022.Caad_005_001_04 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] MsgChcksmInptVal {
+
+        public string MsgChcksmInptVal {
             get {
                 return this.msgChcksmInptValField;
             }
@@ -974,7 +974,7 @@ namespace ISO20022.Caad_005_001_04 {
         private object itemField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Binry", typeof(byte[]), DataType="base64Binary")]
+        [System.Xml.Serialization.XmlElementAttribute("Binry", typeof(string))]
         [System.Xml.Serialization.XmlElementAttribute("HexBinry", typeof(string))]
         public object Item {
             get {
@@ -1019,15 +1019,15 @@ namespace ISO20022.Caad_005_001_04 {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:iso:std:iso:20022:tech:xsd:caad.005.001.04")]
     public partial class Parameter7 {
         
-        private byte[] initlstnVctrField;
+        private string initlstnVctrField;
         
         private BytePadding1Code bPddgField;
         
         private bool bPddgFieldSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] InitlstnVctr {
+
+        public string InitlstnVctr {
             get {
                 return this.initlstnVctrField;
             }
@@ -1233,7 +1233,7 @@ namespace ISO20022.Caad_005_001_04 {
         
         private bool ncrptnFrmtFieldSpecified;
         
-        private byte[] initlstnVctrField;
+        private string initlstnVctrField;
         
         private BytePadding1Code bPddgField;
         
@@ -1261,8 +1261,8 @@ namespace ISO20022.Caad_005_001_04 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] InitlstnVctr {
+
+        public string InitlstnVctr {
             get {
                 return this.initlstnVctrField;
             }
@@ -1389,7 +1389,7 @@ namespace ISO20022.Caad_005_001_04 {
         
         private bool seqNbFieldSpecified;
         
-        private byte[] derivtnIdField;
+        private string derivtnIdField;
         
         /// <remarks/>
         public string KeyId {
@@ -1433,8 +1433,8 @@ namespace ISO20022.Caad_005_001_04 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] DerivtnId {
+
+        public string DerivtnId {
             get {
                 return this.derivtnIdField;
             }
@@ -1460,7 +1460,7 @@ namespace ISO20022.Caad_005_001_04 {
         
         private AlgorithmIdentification28 keyNcrptnAlgoField;
         
-        private byte[] ncrptdKeyField;
+        private string ncrptdKeyField;
         
         /// <remarks/>
         public decimal Vrsn {
@@ -1504,8 +1504,8 @@ namespace ISO20022.Caad_005_001_04 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] NcrptdKey {
+
+        public string NcrptdKey {
             get {
                 return this.ncrptdKeyField;
             }
@@ -1711,7 +1711,7 @@ namespace ISO20022.Caad_005_001_04 {
         
         private bool seqNbFieldSpecified;
         
-        private byte[] derivtnIdField;
+        private string derivtnIdField;
         
         /// <remarks/>
         public string KeyId {
@@ -1755,8 +1755,8 @@ namespace ISO20022.Caad_005_001_04 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] DerivtnId {
+
+        public string DerivtnId {
             get {
                 return this.derivtnIdField;
             }
@@ -1831,7 +1831,7 @@ namespace ISO20022.Caad_005_001_04 {
         
         private RelativeDistinguishedName1[] issrField;
         
-        private byte[] srlNbField;
+        private string srlNbField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("RltvDstngshdNm", IsNullable=false)]
@@ -1845,8 +1845,8 @@ namespace ISO20022.Caad_005_001_04 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] SrlNb {
+
+        public string SrlNb {
             get {
                 return this.srlNbField;
             }
@@ -1895,7 +1895,7 @@ namespace ISO20022.Caad_005_001_04 {
         
         private AlgorithmIdentification27 keyNcrptnAlgoField;
         
-        private byte[] ncrptdKeyField;
+        private string ncrptdKeyField;
         
         /// <remarks/>
         public decimal Vrsn {
@@ -1939,8 +1939,8 @@ namespace ISO20022.Caad_005_001_04 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] NcrptdKey {
+
+        public string NcrptdKey {
             get {
                 return this.ncrptdKeyField;
             }

@@ -747,7 +747,7 @@ namespace ISO20022.Pain_013_001_11 {
         
         private PartyAndSignature4 dgtlSgntrField;
         
-        private byte[] nclsrField;
+        private string nclsrField;
         
         /// <remarks/>
         public DocumentType1Choice Tp {
@@ -830,8 +830,8 @@ namespace ISO20022.Pain_013_001_11 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] Nclsr {
+
+        public string Nclsr {
             get {
                 return this.nclsrField;
             }
@@ -3866,7 +3866,7 @@ namespace ISO20022.Pain_013_001_11 {
         
         private bool dtOfVrfctnFieldSpecified;
         
-        private byte[] elctrncSgntrField;
+        private string elctrncSgntrField;
         
         private System.DateTime frstPmtDtField;
         
@@ -3944,8 +3944,8 @@ namespace ISO20022.Pain_013_001_11 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] ElctrncSgntr {
+
+        public string ElctrncSgntr {
             get {
                 return this.elctrncSgntrField;
             }

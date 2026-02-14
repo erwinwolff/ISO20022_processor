@@ -508,7 +508,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private EncapsulatedContent3 ncpsltdCnttField;
         
-        private byte[] mACField;
+        private string mACField;
         
         /// <remarks/>
         public decimal Vrsn {
@@ -563,8 +563,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] MAC {
+
+        public string MAC {
             get {
                 return this.mACField;
             }
@@ -614,7 +614,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private AlgorithmIdentification32 keyNcrptnAlgoField;
         
-        private byte[] ncrptdKeyField;
+        private string ncrptdKeyField;
         
         /// <remarks/>
         public decimal Vrsn {
@@ -658,8 +658,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] NcrptdKey {
+
+        public string NcrptdKey {
             get {
                 return this.ncrptdKeyField;
             }
@@ -685,7 +685,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private bool seqNbFieldSpecified;
         
-        private byte[] derivtnIdField;
+        private string derivtnIdField;
         
         /// <remarks/>
         public string KeyId {
@@ -729,8 +729,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] DerivtnId {
+
+        public string DerivtnId {
             get {
                 return this.derivtnIdField;
             }
@@ -858,7 +858,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private bool ncrptnFrmtFieldSpecified;
         
-        private byte[] initlstnVctrField;
+        private string initlstnVctrField;
         
         private BytePadding1Code bPddgField;
         
@@ -886,8 +886,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] InitlstnVctr {
+
+        public string InitlstnVctr {
             get {
                 return this.initlstnVctrField;
             }
@@ -972,7 +972,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private AlgorithmIdentification35 keyNcrptnAlgoField;
         
-        private byte[] ncrptdKeyField;
+        private string ncrptdKeyField;
         
         /// <remarks/>
         public decimal Vrsn {
@@ -1016,8 +1016,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] NcrptdKey {
+
+        public string NcrptdKey {
             get {
                 return this.ncrptdKeyField;
             }
@@ -1039,7 +1039,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("IssrAndSrlNb", typeof(IssuerAndSerialNumber2))]
-        [System.Xml.Serialization.XmlElementAttribute("SbjtKeyIdr", typeof(byte[]), DataType="base64Binary")]
+        [System.Xml.Serialization.XmlElementAttribute("SbjtKeyIdr", typeof(string))]
         public object Item {
             get {
                 return this.itemField;
@@ -1060,7 +1060,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private RelativeDistinguishedName1[] issrField;
         
-        private byte[] srlNbField;
+        private string srlNbField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("RltvDstngshdNm", IsNullable=false)]
@@ -1074,8 +1074,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] SrlNb {
+
+        public string SrlNb {
             get {
                 return this.srlNbField;
             }
@@ -1470,15 +1470,15 @@ namespace ISO20022.Caaa_016_001_12 {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:iso:std:iso:20022:tech:xsd:caaa.016.001.12")]
     public partial class Parameter7 {
         
-        private byte[] initlstnVctrField;
+        private string initlstnVctrField;
         
         private BytePadding1Code bPddgField;
         
         private bool bPddgFieldSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] InitlstnVctr {
+
+        public string InitlstnVctr {
             get {
                 return this.initlstnVctrField;
             }
@@ -1519,7 +1519,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private ContentType2Code cnttTpField;
         
-        private byte[] cnttField;
+        private string cnttField;
         
         /// <remarks/>
         public ContentType2Code CnttTp {
@@ -1532,8 +1532,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] Cntt {
+
+        public string Cntt {
             get {
                 return this.cnttField;
             }
@@ -1565,7 +1565,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private bool tknAssrncLvlFieldSpecified;
         
-        private byte[] tknAssrncDataField;
+        private string tknAssrncDataField;
         
         private string tknAssrncMtdField;
         
@@ -1646,8 +1646,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] TknAssrncData {
+
+        public string TknAssrncData {
             get {
                 return this.tknAssrncDataField;
             }
@@ -2628,7 +2628,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private bool cardDataNtryMdFieldSpecified;
         
-        private byte[] iCCRltdDataField;
+        private string iCCRltdDataField;
         
         private string lablField;
         
@@ -2674,8 +2674,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] ICCRltdData {
+
+        public string ICCRltdData {
             get {
                 return this.iCCRltdDataField;
             }
@@ -3335,7 +3335,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private EncapsulatedContent3 ncpsltdCnttField;
         
-        private byte[] certField;
+        private string certField;
         
         private Signer8[] sgnrField;
         
@@ -3382,8 +3382,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Cert", DataType="base64Binary")]
-        public byte[] Cert {
+        [System.Xml.Serialization.XmlElementAttribute("Cert")]
+        public string Cert {
             get {
                 return this.certField;
             }
@@ -3445,7 +3445,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private AlgorithmIdentification33 sgntrAlgoField;
         
-        private byte[] sgntrField;
+        private string sgntrField;
         
         /// <remarks/>
         public decimal Vrsn {
@@ -3510,8 +3510,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] Sgntr {
+
+        public string Sgntr {
             get {
                 return this.sgntrField;
             }
@@ -3837,7 +3837,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private string brcdValField;
         
-        private byte[] qRCdBinryValField;
+        private string qRCdBinryValField;
         
         private string qRCdVrsnField;
         
@@ -3870,8 +3870,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] QRCdBinryVal {
+
+        public string QRCdBinryVal {
             get {
                 return this.qRCdBinryValField;
             }
@@ -5553,7 +5553,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private ExternallyDefinedData5[] addtlInfField;
         
-        private byte[] iCCRltdDataField;
+        private string iCCRltdDataField;
         
         /// <remarks/>
         public string Ccy {
@@ -5922,8 +5922,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] ICCRltdData {
+
+        public string ICCRltdData {
             get {
                 return this.iCCRltdDataField;
             }
@@ -6096,7 +6096,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private string idField;
         
-        private byte[] valField;
+        private string valField;
         
         private ContentInformationType39 prtctdValField;
         
@@ -6113,8 +6113,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] Val {
+
+        public string Val {
             get {
                 return this.valField;
             }
@@ -6225,7 +6225,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private bool vrsnFieldSpecified;
         
-        private byte[] orgtrInfField;
+        private string orgtrInfField;
         
         private Recipient15Choice[] rcptField;
         
@@ -6253,8 +6253,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("Cert", DataType="base64Binary", IsNullable=false)]
-        public byte[] OrgtrInf {
+        
+        public string OrgtrInf {
             get {
                 return this.orgtrInfField;
             }
@@ -6297,7 +6297,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private AlgorithmIdentification32 cnttNcrptnAlgoField;
         
-        private byte[] ncrptdDataField;
+        private string ncrptdDataField;
         
         /// <remarks/>
         public ContentType2Code CnttTp {
@@ -6320,8 +6320,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] NcrptdData {
+
+        public string NcrptdData {
             get {
                 return this.ncrptdDataField;
             }
@@ -6347,7 +6347,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private EncapsulatedContent3 ncpsltdCnttField;
         
-        private byte[] dgstField;
+        private string dgstField;
         
         /// <remarks/>
         public decimal Vrsn {
@@ -6391,8 +6391,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] Dgst {
+
+        public string Dgst {
             get {
                 return this.dgstField;
             }
@@ -8288,7 +8288,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private bool authntcnXmptnFieldSpecified;
         
-        private byte[] authntcnValField;
+        private string authntcnValField;
         
         private ContentInformationType40 prtctdAuthntcnValField;
         
@@ -8351,8 +8351,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] AuthntcnVal {
+
+        public string AuthntcnVal {
             get {
                 return this.authntcnValField;
             }
@@ -9634,7 +9634,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private bool tknAssrncLvlFieldSpecified;
         
-        private byte[] tknAssrncDataField;
+        private string tknAssrncDataField;
         
         private string tknAssrncMtdField;
         
@@ -9705,8 +9705,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] TknAssrncData {
+
+        public string TknAssrncData {
             get {
                 return this.tknAssrncDataField;
             }
@@ -10661,7 +10661,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private ContentInformationType40 prtctdCardDataField;
         
-        private byte[] prvtCardDataField;
+        private string prvtCardDataField;
         
         private PlainCardData22 plainCardDataField;
         
@@ -10706,8 +10706,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] PrvtCardData {
+
+        public string PrvtCardData {
             get {
                 return this.prvtCardDataField;
             }
@@ -11179,7 +11179,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private string idField;
         
-        private byte[] addtlIdField;
+        private string addtlIdField;
         
         private string nmField;
         
@@ -11209,7 +11209,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private ContentInformationType39[] prtctdCmpntWthAuthrsdAccsField;
         
-        private byte[] keyChckValField;
+        private string keyChckValField;
         
         private GenericInformation1[] addtlMgmtInfField;
         
@@ -11224,8 +11224,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] AddtlId {
+
+        public string AddtlId {
             get {
                 return this.addtlIdField;
             }
@@ -11381,8 +11381,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] KeyChckVal {
+
+        public string KeyChckVal {
             get {
                 return this.keyChckValField;
             }
@@ -11502,11 +11502,11 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private string usrNmField;
         
-        private byte[] accsCdField;
+        private string accsCdField;
         
         private string sctyPrflField;
         
-        private byte[] addtlParamsField;
+        private string addtlParamsField;
         
         /// <remarks/>
         public string IntrfcNm {
@@ -11550,8 +11550,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] AccsCd {
+
+        public string AccsCd {
             get {
                 return this.accsCdField;
             }
@@ -11571,8 +11571,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] AddtlParams {
+
+        public string AddtlParams {
             get {
                 return this.addtlParamsField;
             }
@@ -11710,13 +11710,13 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private string usrNmField;
         
-        private byte[] accsCdField;
+        private string accsCdField;
         
-        private byte[] svrCertField;
+        private string svrCertField;
         
-        private byte[] svrCertIdrField;
+        private string svrCertIdrField;
         
-        private byte[] clntCertField;
+        private string clntCertField;
         
         private string sctyPrflField;
         
@@ -11742,8 +11742,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] AccsCd {
+
+        public string AccsCd {
             get {
                 return this.accsCdField;
             }
@@ -11753,8 +11753,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("SvrCert", DataType="base64Binary")]
-        public byte[] SvrCert {
+        [System.Xml.Serialization.XmlElementAttribute("SvrCert")]
+        public string SvrCert {
             get {
                 return this.svrCertField;
             }
@@ -11764,8 +11764,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("SvrCertIdr", DataType="base64Binary")]
-        public byte[] SvrCertIdr {
+        [System.Xml.Serialization.XmlElementAttribute("SvrCertIdr")]
+        public string SvrCertIdr {
             get {
                 return this.svrCertIdrField;
             }
@@ -11775,8 +11775,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ClntCert", DataType="base64Binary")]
-        public byte[] ClntCert {
+        [System.Xml.Serialization.XmlElementAttribute("ClntCert")]
+        public string ClntCert {
             get {
                 return this.clntCertField;
             }
@@ -12242,7 +12242,7 @@ namespace ISO20022.Caaa_016_001_12 {
         
         private PackageType5[] packgField;
         
-        private byte[] prbValField;
+        private string prbValField;
         
         /// <remarks/>
         public POIComponentType7Code Tp {
@@ -12328,8 +12328,8 @@ namespace ISO20022.Caaa_016_001_12 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] PrbVal {
+
+        public string PrbVal {
             get {
                 return this.prbValField;
             }

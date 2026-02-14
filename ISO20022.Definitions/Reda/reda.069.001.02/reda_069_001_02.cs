@@ -781,7 +781,7 @@ namespace ISO20022.Reda_069_001_02 {
         
         private string mrchntCtgyCdField;
         
-        private byte[] cdtrLogoField;
+        private string cdtrLogoField;
         
         /// <remarks/>
         public CreditorServiceEnrolment1 Enrlmnt {
@@ -834,8 +834,8 @@ namespace ISO20022.Reda_069_001_02 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] CdtrLogo {
+
+        public string CdtrLogo {
             get {
                 return this.cdtrLogoField;
             }

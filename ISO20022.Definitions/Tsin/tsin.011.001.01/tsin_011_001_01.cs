@@ -4311,7 +4311,7 @@ namespace ISO20022.Tsin_011_001_01 {
         
         private string charSetField;
         
-        private byte[] inclBinryObjctField;
+        private string inclBinryObjctField;
         
         /// <remarks/>
         public string MIMETp {
@@ -4344,8 +4344,8 @@ namespace ISO20022.Tsin_011_001_01 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] InclBinryObjct {
+
+        public string InclBinryObjct {
             get {
                 return this.inclBinryObjctField;
             }

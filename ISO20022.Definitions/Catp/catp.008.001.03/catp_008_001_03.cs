@@ -398,7 +398,7 @@ namespace ISO20022.Catp_008_001_03 {
         
         private ContentType2Code cnttTpField;
         
-        private byte[] cnttField;
+        private string cnttField;
         
         /// <remarks/>
         public ContentType2Code CnttTp {
@@ -411,8 +411,8 @@ namespace ISO20022.Catp_008_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] Cntt {
+
+        public string Cntt {
             get {
                 return this.cnttField;
             }
@@ -452,15 +452,15 @@ namespace ISO20022.Catp_008_001_03 {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:iso:std:iso:20022:tech:xsd:catp.008.001.03")]
     public partial class Parameter7 {
         
-        private byte[] initlstnVctrField;
+        private string initlstnVctrField;
         
         private BytePadding1Code bPddgField;
         
         private bool bPddgFieldSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] InitlstnVctr {
+
+        public string InitlstnVctr {
             get {
                 return this.initlstnVctrField;
             }
@@ -589,7 +589,7 @@ namespace ISO20022.Catp_008_001_03 {
         
         private EncapsulatedContent3 ncpsltdCnttField;
         
-        private byte[] mACField;
+        private string mACField;
         
         /// <remarks/>
         public decimal Vrsn {
@@ -644,8 +644,8 @@ namespace ISO20022.Catp_008_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] MAC {
+
+        public string MAC {
             get {
                 return this.mACField;
             }
@@ -695,7 +695,7 @@ namespace ISO20022.Catp_008_001_03 {
         
         private AlgorithmIdentification13 keyNcrptnAlgoField;
         
-        private byte[] ncrptdKeyField;
+        private string ncrptdKeyField;
         
         /// <remarks/>
         public decimal Vrsn {
@@ -739,8 +739,8 @@ namespace ISO20022.Catp_008_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] NcrptdKey {
+
+        public string NcrptdKey {
             get {
                 return this.ncrptdKeyField;
             }
@@ -766,7 +766,7 @@ namespace ISO20022.Catp_008_001_03 {
         
         private bool seqNbFieldSpecified;
         
-        private byte[] derivtnIdField;
+        private string derivtnIdField;
         
         /// <remarks/>
         public string KeyId {
@@ -810,8 +810,8 @@ namespace ISO20022.Catp_008_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] DerivtnId {
+
+        public string DerivtnId {
             get {
                 return this.derivtnIdField;
             }
@@ -894,7 +894,7 @@ namespace ISO20022.Catp_008_001_03 {
         
         private bool ncrptnFrmtFieldSpecified;
         
-        private byte[] initlstnVctrField;
+        private string initlstnVctrField;
         
         private BytePadding1Code bPddgField;
         
@@ -922,8 +922,8 @@ namespace ISO20022.Catp_008_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] InitlstnVctr {
+
+        public string InitlstnVctr {
             get {
                 return this.initlstnVctrField;
             }
@@ -983,7 +983,7 @@ namespace ISO20022.Catp_008_001_03 {
         
         private AlgorithmIdentification11 keyNcrptnAlgoField;
         
-        private byte[] ncrptdKeyField;
+        private string ncrptdKeyField;
         
         /// <remarks/>
         public decimal Vrsn {
@@ -1027,8 +1027,8 @@ namespace ISO20022.Catp_008_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] NcrptdKey {
+
+        public string NcrptdKey {
             get {
                 return this.ncrptdKeyField;
             }
@@ -1071,7 +1071,7 @@ namespace ISO20022.Catp_008_001_03 {
         
         private RelativeDistinguishedName1[] issrField;
         
-        private byte[] srlNbField;
+        private string srlNbField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("RltvDstngshdNm", IsNullable=false)]
@@ -1085,8 +1085,8 @@ namespace ISO20022.Catp_008_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] SrlNb {
+
+        public string SrlNb {
             get {
                 return this.srlNbField;
             }
@@ -1462,7 +1462,7 @@ namespace ISO20022.Catp_008_001_03 {
         
         private bool dvcFieldSpecified;
         
-        private byte[] msgCnttSgntrField;
+        private string msgCnttSgntrField;
         
         /// <remarks/>
         public OutputFormat2Code Frmt {
@@ -1527,8 +1527,8 @@ namespace ISO20022.Catp_008_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] MsgCnttSgntr {
+
+        public string MsgCnttSgntr {
             get {
                 return this.msgCnttSgntrField;
             }
@@ -2351,7 +2351,7 @@ namespace ISO20022.Catp_008_001_03 {
         
         private AuthorisationResult20 authstnRsltField;
         
-        private byte[] iCCRltdDataField;
+        private string iCCRltdDataField;
         
         /// <remarks/>
         public TransactionIdentifier3 TxId {
@@ -2479,8 +2479,8 @@ namespace ISO20022.Catp_008_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] ICCRltdData {
+
+        public string ICCRltdData {
             get {
                 return this.iCCRltdDataField;
             }
@@ -3127,7 +3127,7 @@ namespace ISO20022.Catp_008_001_03 {
         
         private AlgorithmIdentification14 cnttNcrptnAlgoField;
         
-        private byte[] ncrptdDataField;
+        private string ncrptdDataField;
         
         /// <remarks/>
         public ContentType2Code CnttTp {
@@ -3150,8 +3150,8 @@ namespace ISO20022.Catp_008_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] NcrptdData {
+
+        public string NcrptdData {
             get {
                 return this.ncrptdDataField;
             }
@@ -3233,7 +3233,7 @@ namespace ISO20022.Catp_008_001_03 {
         
         private string addtlRsltField;
         
-        private byte[] authntcnTknField;
+        private string authntcnTknField;
         
         /// <remarks/>
         public AuthenticationMethod7Code Mtd {
@@ -3298,8 +3298,8 @@ namespace ISO20022.Catp_008_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] AuthntcnTkn {
+
+        public string AuthntcnTkn {
             get {
                 return this.authntcnTknField;
             }

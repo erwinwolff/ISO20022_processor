@@ -1714,7 +1714,7 @@ namespace ISO20022.Acmt_008_001_05 {
         
         private PartyIdentification272 ptyField;
         
-        private byte[] certField;
+        private string certField;
         
         /// <remarks/>
         public PartyIdentification272 Pty {
@@ -1727,8 +1727,8 @@ namespace ISO20022.Acmt_008_001_05 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] Cert {
+
+        public string Cert {
             get {
                 return this.certField;
             }

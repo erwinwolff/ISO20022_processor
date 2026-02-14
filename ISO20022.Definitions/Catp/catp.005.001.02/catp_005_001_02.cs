@@ -658,7 +658,7 @@ namespace ISO20022.Catp_005_001_02 {
         
         private ATMCommand7[] cmdField;
         
-        private byte[] msgInErrField;
+        private string msgInErrField;
         
         /// <remarks/>
         public string RjctInitrId {
@@ -702,8 +702,8 @@ namespace ISO20022.Catp_005_001_02 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] MsgInErr {
+
+        public string MsgInErr {
             get {
                 return this.msgInErrField;
             }

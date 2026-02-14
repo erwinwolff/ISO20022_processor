@@ -55,7 +55,7 @@ namespace ISO20022.Caad_004_001_03 {
         
         private bool nbOfMsgsFieldSpecified;
         
-        private byte[] btchChcksmField;
+        private string btchChcksmField;
         
         private bool reqAckField;
         
@@ -155,8 +155,8 @@ namespace ISO20022.Caad_004_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] BtchChcksm {
+
+        public string BtchChcksm {
             get {
                 return this.btchChcksmField;
             }
@@ -550,7 +550,7 @@ namespace ISO20022.Caad_004_001_03 {
         
         private string msgSeqNbField;
         
-        private byte[] msgChcksmInptValField;
+        private string msgChcksmInptValField;
         
         /// <remarks/>
         public string ColltnId {
@@ -583,8 +583,8 @@ namespace ISO20022.Caad_004_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] MsgChcksmInptVal {
+
+        public string MsgChcksmInptVal {
             get {
                 return this.msgChcksmInptValField;
             }
@@ -988,7 +988,7 @@ namespace ISO20022.Caad_004_001_03 {
         private object itemField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Binry", typeof(byte[]), DataType="base64Binary")]
+        [System.Xml.Serialization.XmlElementAttribute("Binry", typeof(string))]
         [System.Xml.Serialization.XmlElementAttribute("HexBinry", typeof(string))]
         public object Item {
             get {
@@ -1033,15 +1033,15 @@ namespace ISO20022.Caad_004_001_03 {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:iso:std:iso:20022:tech:xsd:caad.004.001.03")]
     public partial class Parameter7 {
         
-        private byte[] initlstnVctrField;
+        private string initlstnVctrField;
         
         private BytePadding1Code bPddgField;
         
         private bool bPddgFieldSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] InitlstnVctr {
+
+        public string InitlstnVctr {
             get {
                 return this.initlstnVctrField;
             }
@@ -1247,7 +1247,7 @@ namespace ISO20022.Caad_004_001_03 {
         
         private bool ncrptnFrmtFieldSpecified;
         
-        private byte[] initlstnVctrField;
+        private string initlstnVctrField;
         
         private BytePadding1Code bPddgField;
         
@@ -1275,8 +1275,8 @@ namespace ISO20022.Caad_004_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] InitlstnVctr {
+
+        public string InitlstnVctr {
             get {
                 return this.initlstnVctrField;
             }
@@ -1403,7 +1403,7 @@ namespace ISO20022.Caad_004_001_03 {
         
         private bool seqNbFieldSpecified;
         
-        private byte[] derivtnIdField;
+        private string derivtnIdField;
         
         /// <remarks/>
         public string KeyId {
@@ -1447,8 +1447,8 @@ namespace ISO20022.Caad_004_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] DerivtnId {
+
+        public string DerivtnId {
             get {
                 return this.derivtnIdField;
             }
@@ -1474,7 +1474,7 @@ namespace ISO20022.Caad_004_001_03 {
         
         private AlgorithmIdentification28 keyNcrptnAlgoField;
         
-        private byte[] ncrptdKeyField;
+        private string ncrptdKeyField;
         
         /// <remarks/>
         public decimal Vrsn {
@@ -1518,8 +1518,8 @@ namespace ISO20022.Caad_004_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] NcrptdKey {
+
+        public string NcrptdKey {
             get {
                 return this.ncrptdKeyField;
             }
@@ -1725,7 +1725,7 @@ namespace ISO20022.Caad_004_001_03 {
         
         private bool seqNbFieldSpecified;
         
-        private byte[] derivtnIdField;
+        private string derivtnIdField;
         
         /// <remarks/>
         public string KeyId {
@@ -1769,8 +1769,8 @@ namespace ISO20022.Caad_004_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] DerivtnId {
+
+        public string DerivtnId {
             get {
                 return this.derivtnIdField;
             }
@@ -1845,7 +1845,7 @@ namespace ISO20022.Caad_004_001_03 {
         
         private RelativeDistinguishedName1[] issrField;
         
-        private byte[] srlNbField;
+        private string srlNbField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("RltvDstngshdNm", IsNullable=false)]
@@ -1859,8 +1859,8 @@ namespace ISO20022.Caad_004_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] SrlNb {
+
+        public string SrlNb {
             get {
                 return this.srlNbField;
             }
@@ -1909,7 +1909,7 @@ namespace ISO20022.Caad_004_001_03 {
         
         private AlgorithmIdentification27 keyNcrptnAlgoField;
         
-        private byte[] ncrptdKeyField;
+        private string ncrptdKeyField;
         
         /// <remarks/>
         public decimal Vrsn {
@@ -1953,8 +1953,8 @@ namespace ISO20022.Caad_004_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] NcrptdKey {
+
+        public string NcrptdKey {
             get {
                 return this.ncrptdKeyField;
             }
@@ -2827,51 +2827,51 @@ namespace ISO20022.Caad_004_001_03 {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:iso:std:iso:20022:tech:xsd:caad.004.001.03")]
     public partial class RecordMessage1Choice {
         
-        private byte[] itemField;
+        private string itemField;
         
         private ItemChoiceType itemElementNameField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("AdddmInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("AdddmRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("Amdmnt", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("AuthstnInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("AuthstnRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("CardMgmtInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("CardMgmtRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("ChrgBckInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("ChrgBckRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("Err", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("FeeColltnInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("FeeColltnRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("FileActnInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("FileActnRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("FinInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("FinRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("FrdDspstnInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("FrdDspstnRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("FrdRptgInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("FrdRptgRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("KeyXchgInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("KeyXchgRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("NqryInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("NqryRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("NtwkMgmtInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("NtwkMgmtRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("RcncltnInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("RcncltnRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("RtrvlFlfmtInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("RtrvlFlfmtRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("RtrvlInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("RtrvlRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("RvslInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("RvslRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("SttlmRptgInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("SttlmRptgRspn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("VrfctnInitn", typeof(byte[]), DataType="base64Binary")]
-        [System.Xml.Serialization.XmlElementAttribute("VrfctnRspn", typeof(byte[]), DataType="base64Binary")]
+        [System.Xml.Serialization.XmlElementAttribute("AdddmInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("AdddmRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("Amdmnt", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("AuthstnInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("AuthstnRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("CardMgmtInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("CardMgmtRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("ChrgBckInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("ChrgBckRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("Err", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("FeeColltnInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("FeeColltnRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("FileActnInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("FileActnRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("FinInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("FinRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("FrdDspstnInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("FrdDspstnRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("FrdRptgInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("FrdRptgRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("KeyXchgInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("KeyXchgRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("NqryInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("NqryRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("NtwkMgmtInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("NtwkMgmtRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("RcncltnInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("RcncltnRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("RtrvlFlfmtInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("RtrvlFlfmtRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("RtrvlInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("RtrvlRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("RvslInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("RvslRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("SttlmRptgInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("SttlmRptgRspn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("VrfctnInitn", typeof(string))]
+        [System.Xml.Serialization.XmlElementAttribute("VrfctnRspn", typeof(string))]
         [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
-        public byte[] Item {
+        public string Item {
             get {
                 return this.itemField;
             }
@@ -3204,7 +3204,7 @@ namespace ISO20022.Caad_004_001_03 {
         
         private decimal seqCntrField;
         
-        private byte[] rcrdChcksmInptValField;
+        private string rcrdChcksmInptValField;
         
         private string orgtrIdField;
         
@@ -3277,8 +3277,8 @@ namespace ISO20022.Caad_004_001_03 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] RcrdChcksmInptVal {
+
+        public string RcrdChcksmInptVal {
             get {
                 return this.rcrdChcksmInptValField;
             }

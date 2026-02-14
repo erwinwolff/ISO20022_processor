@@ -346,7 +346,7 @@ namespace ISO20022.Caam_007_001_01 {
         
         private ContentType2Code cnttTpField;
         
-        private byte[] cnttField;
+        private string cnttField;
         
         /// <remarks/>
         public ContentType2Code CnttTp {
@@ -359,8 +359,8 @@ namespace ISO20022.Caam_007_001_01 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] Cntt {
+
+        public string Cntt {
             get {
                 return this.cnttField;
             }
@@ -400,15 +400,15 @@ namespace ISO20022.Caam_007_001_01 {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:iso:std:iso:20022:tech:xsd:caam.007.001.01")]
     public partial class Parameter7 {
         
-        private byte[] initlstnVctrField;
+        private string initlstnVctrField;
         
         private BytePadding1Code bPddgField;
         
         private bool bPddgFieldSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] InitlstnVctr {
+
+        public string InitlstnVctr {
             get {
                 return this.initlstnVctrField;
             }
@@ -537,7 +537,7 @@ namespace ISO20022.Caam_007_001_01 {
         
         private EncapsulatedContent3 ncpsltdCnttField;
         
-        private byte[] mACField;
+        private string mACField;
         
         /// <remarks/>
         public decimal Vrsn {
@@ -592,8 +592,8 @@ namespace ISO20022.Caam_007_001_01 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] MAC {
+
+        public string MAC {
             get {
                 return this.mACField;
             }
@@ -643,7 +643,7 @@ namespace ISO20022.Caam_007_001_01 {
         
         private AlgorithmIdentification13 keyNcrptnAlgoField;
         
-        private byte[] ncrptdKeyField;
+        private string ncrptdKeyField;
         
         /// <remarks/>
         public decimal Vrsn {
@@ -687,8 +687,8 @@ namespace ISO20022.Caam_007_001_01 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] NcrptdKey {
+
+        public string NcrptdKey {
             get {
                 return this.ncrptdKeyField;
             }
@@ -714,7 +714,7 @@ namespace ISO20022.Caam_007_001_01 {
         
         private bool seqNbFieldSpecified;
         
-        private byte[] derivtnIdField;
+        private string derivtnIdField;
         
         /// <remarks/>
         public string KeyId {
@@ -758,8 +758,8 @@ namespace ISO20022.Caam_007_001_01 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] DerivtnId {
+
+        public string DerivtnId {
             get {
                 return this.derivtnIdField;
             }
@@ -842,7 +842,7 @@ namespace ISO20022.Caam_007_001_01 {
         
         private bool ncrptnFrmtFieldSpecified;
         
-        private byte[] initlstnVctrField;
+        private string initlstnVctrField;
         
         private BytePadding1Code bPddgField;
         
@@ -870,8 +870,8 @@ namespace ISO20022.Caam_007_001_01 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] InitlstnVctr {
+
+        public string InitlstnVctr {
             get {
                 return this.initlstnVctrField;
             }
@@ -931,7 +931,7 @@ namespace ISO20022.Caam_007_001_01 {
         
         private AlgorithmIdentification11 keyNcrptnAlgoField;
         
-        private byte[] ncrptdKeyField;
+        private string ncrptdKeyField;
         
         /// <remarks/>
         public decimal Vrsn {
@@ -975,8 +975,8 @@ namespace ISO20022.Caam_007_001_01 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] NcrptdKey {
+
+        public string NcrptdKey {
             get {
                 return this.ncrptdKeyField;
             }
@@ -1019,7 +1019,7 @@ namespace ISO20022.Caam_007_001_01 {
         
         private RelativeDistinguishedName1[] issrField;
         
-        private byte[] srlNbField;
+        private string srlNbField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("RltvDstngshdNm", IsNullable=false)]
@@ -1033,8 +1033,8 @@ namespace ISO20022.Caam_007_001_01 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] SrlNb {
+
+        public string SrlNb {
             get {
                 return this.srlNbField;
             }
@@ -1647,7 +1647,7 @@ namespace ISO20022.Caam_007_001_01 {
         
         private AlgorithmIdentification14 cnttNcrptnAlgoField;
         
-        private byte[] ncrptdDataField;
+        private string ncrptdDataField;
         
         /// <remarks/>
         public ContentType2Code CnttTp {
@@ -1670,8 +1670,8 @@ namespace ISO20022.Caam_007_001_01 {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")]
-        public byte[] NcrptdData {
+
+        public string NcrptdData {
             get {
                 return this.ncrptdDataField;
             }
