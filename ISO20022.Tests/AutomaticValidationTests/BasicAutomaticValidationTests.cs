@@ -16,7 +16,6 @@ namespace ISO20022.Tests.AutomaticValidationTests
             XmlISOValidator xmlISOValidator = new XmlISOValidator();
         }
 
-
         [TestMethod]
         [Ignore("This test is just to print out the loaded schemas and their namespaces, not an actual unit test.")]
         public async Task AllSchemasIntoString_Success()
