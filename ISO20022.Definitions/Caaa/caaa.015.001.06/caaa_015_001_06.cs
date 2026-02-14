@@ -604,11 +604,11 @@ namespace ISO20022.Caaa_015_001_06 {
         
         private byte[] accsCdField;
         
-        private byte[][] svrCertField;
+        private byte[] svrCertField;
         
-        private byte[][] svrCertIdrField;
+        private byte[] svrCertIdrField;
         
-        private byte[][] clntCertField;
+        private byte[] clntCertField;
         
         private string sctyPrflField;
         
@@ -646,7 +646,7 @@ namespace ISO20022.Caaa_015_001_06 {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("SvrCert", DataType="base64Binary")]
-        public byte[][] SvrCert {
+        public byte[] SvrCert {
             get {
                 return this.svrCertField;
             }
@@ -657,7 +657,7 @@ namespace ISO20022.Caaa_015_001_06 {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("SvrCertIdr", DataType="base64Binary")]
-        public byte[][] SvrCertIdr {
+        public byte[] SvrCertIdr {
             get {
                 return this.svrCertIdrField;
             }
@@ -668,7 +668,7 @@ namespace ISO20022.Caaa_015_001_06 {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("ClntCert", DataType="base64Binary")]
-        public byte[][] ClntCert {
+        public byte[] ClntCert {
             get {
                 return this.clntCertField;
             }

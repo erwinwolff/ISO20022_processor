@@ -5,6 +5,6 @@ namespace ISO20022.Definitions.Interfaces
 {
     public interface ISchemaToObjectRegistry
     {
-        Dictionary<string, Type> SchemaToObjectMap { get; }
+        Dictionary<string, Type> SchemaToObjectMap { set; get; }
     }
 }

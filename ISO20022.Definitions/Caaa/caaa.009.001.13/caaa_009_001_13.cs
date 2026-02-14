@@ -2283,7 +2283,7 @@ namespace ISO20022.Caaa_009_001_13 {
         
         private bool vrsnFieldSpecified;
         
-        private byte[][] orgtrInfField;
+        private byte[] orgtrInfField;
         
         private Recipient15Choice[] rcptField;
         
@@ -2312,7 +2312,7 @@ namespace ISO20022.Caaa_009_001_13 {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("Cert", DataType="base64Binary", IsNullable=false)]
-        public byte[][] OrgtrInf {
+        public byte[] OrgtrInf {
             get {
                 return this.orgtrInfField;
             }
@@ -3453,7 +3453,7 @@ namespace ISO20022.Caaa_009_001_13 {
         
         private EncapsulatedContent3 ncpsltdCnttField;
         
-        private byte[][] certField;
+        private byte[] certField;
         
         private Signer8[] sgnrField;
         
@@ -3501,7 +3501,7 @@ namespace ISO20022.Caaa_009_001_13 {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Cert", DataType="base64Binary")]
-        public byte[][] Cert {
+        public byte[] Cert {
             get {
                 return this.certField;
             }
@@ -6922,11 +6922,11 @@ namespace ISO20022.Caaa_009_001_13 {
         
         private byte[] accsCdField;
         
-        private byte[][] svrCertField;
+        private byte[] svrCertField;
         
-        private byte[][] svrCertIdrField;
+        private byte[] svrCertIdrField;
         
-        private byte[][] clntCertField;
+        private byte[] clntCertField;
         
         private string sctyPrflField;
         
@@ -6964,7 +6964,7 @@ namespace ISO20022.Caaa_009_001_13 {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("SvrCert", DataType="base64Binary")]
-        public byte[][] SvrCert {
+        public byte[] SvrCert {
             get {
                 return this.svrCertField;
             }
@@ -6975,7 +6975,7 @@ namespace ISO20022.Caaa_009_001_13 {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("SvrCertIdr", DataType="base64Binary")]
-        public byte[][] SvrCertIdr {
+        public byte[] SvrCertIdr {
             get {
                 return this.svrCertIdrField;
             }
@@ -6986,7 +6986,7 @@ namespace ISO20022.Caaa_009_001_13 {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("ClntCert", DataType="base64Binary")]
-        public byte[][] ClntCert {
+        public byte[] ClntCert {
             get {
                 return this.clntCertField;
             }

@@ -63,7 +63,7 @@ namespace ISO20022.Reda_002_001_04 {
         
         private bool cmpltPricCxlField;
         
-        private PriceValuation4[][] cancPricValtnDtlsField;
+        private PriceValuation4[] cancPricValtnDtlsField;
         
         private Extension1[] xtnsnField;
         
@@ -159,7 +159,7 @@ namespace ISO20022.Reda_002_001_04 {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayItemAttribute("PricValtnDtls", typeof(PriceValuation4), IsNullable=false)]
-        public PriceValuation4[][] CancPricValtnDtls {
+        public PriceValuation4[] CancPricValtnDtls {
             get {
                 return this.cancPricValtnDtlsField;
             }

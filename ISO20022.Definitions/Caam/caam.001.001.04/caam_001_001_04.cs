@@ -882,7 +882,7 @@ namespace ISO20022.Caam_001_001_04 {
         
         private EncapsulatedContent3 ncpsltdCnttField;
         
-        private byte[][] certField;
+        private byte[] certField;
         
         private Signer3[] sgnrField;
         
@@ -930,7 +930,7 @@ namespace ISO20022.Caam_001_001_04 {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("Cert", DataType="base64Binary")]
-        public byte[][] Cert {
+        public byte[] Cert {
             get {
                 return this.certField;
             }
