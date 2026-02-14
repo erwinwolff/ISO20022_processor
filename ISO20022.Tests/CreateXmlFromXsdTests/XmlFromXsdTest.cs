@@ -1,6 +1,7 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
+using System.Text;
 using System.Xml.Serialization;
 
 namespace ISO20022.Tests
@@ -20,14 +21,22 @@ namespace ISO20022.Tests
             string xmlFile = "";
 
             using (MemoryStream stream = new MemoryStream())
+            using (StreamWriter sw = new StreamWriter(stream, Encoding.UTF8))
             {
-                serializerPain.Serialize(stream, document);
+                serializerPain.Serialize(sw, document);
                 stream.Position = 0;
                 xmlFile = System.Text.Encoding.UTF8.GetString(stream.ToArray());
             }
 
-            Assert.AreEqual(@"<?xml version=""1.0""?>
+#if NET8_0_OR_GREATER
+            Assert.AreEqual(@"﻿<?xml version=""1.0"" encoding=""utf-8""?>
+<Document xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns=""urn:iso:std:iso:20022:tech:xsd:pain.001.001.12"" />", xmlFile);
+#endif
+#if NET48_OR_GREATER
+            Assert.AreEqual(@"﻿<?xml version=""1.0"" encoding=""utf-8""?>
 <Document xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns=""urn:iso:std:iso:20022:tech:xsd:pain.001.001.12"" />", xmlFile);
+#endif
+
         }
 
         [TestMethod]
