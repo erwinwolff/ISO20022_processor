@@ -1225,23 +1225,25 @@ namespace ISO20022.Cafm_001_001_03 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:iso:std:iso:20022:tech:xsd:cafm.001.001.03")]
-    public partial class EncryptedData2Choice {
-        
-        private object itemField;
-        
+    public partial class EncryptedData2Choice
+    {
+
+        private string itemField;
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Binry", typeof(string))]
-        [System.Xml.Serialization.XmlElementAttribute("HexBinry", typeof(string))]
-        public object Item {
-            get {
+        public string Item
+        {
+            get
+            {
                 return this.itemField;
             }
-            set {
+            set
+            {
                 this.itemField = value;
             }
         }
     }
-    
+
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.9037.0")]
     [System.SerializableAttribute()]
