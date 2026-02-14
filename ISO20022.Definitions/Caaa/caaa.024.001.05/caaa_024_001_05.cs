@@ -1826,7 +1826,7 @@ namespace ISO20022.Caaa_024_001_05 {
         private bool blckStopFieldSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("SchOr", typeof(SearchAnd1[]), IsNullable=false)]
+        [System.Xml.Serialization.XmlArrayItemAttribute("SchOr", typeof(SearchAnd1), IsNullable=false)]
         [System.Xml.Serialization.XmlArrayItemAttribute("SchAnd", typeof(SearchAnd1), IsNullable=false, NestingLevel=1)]
         public SearchAnd1[] SchCrit {
             get {

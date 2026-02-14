@@ -132,6 +132,7 @@ namespace ISO20022.Tests
         }
 
         [TestMethod]
+        //[Ignore("Test takes too long for normal usage")]
         public async Task GetAllXsdTypes_2()
         {
             ISchemaToObjectRegistry schemaToObjectRegistry = new SchemaToObjectRegistry();

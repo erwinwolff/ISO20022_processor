@@ -7272,23 +7272,23 @@ namespace ISO20022.Cafm_002_001_03 {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:iso:std:iso:20022:tech:xsd:cafm.002.001.03")]
-    public partial class DataRecord1Choice {
-        
-        private object[] itemsField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Binry", typeof(string))]
-        [System.Xml.Serialization.XmlElementAttribute("Txt", typeof(string))]
-        public object[] Items {
-            get {
+    public partial class DataRecord1Choice
+    {
+
+        private string[] itemsField;
+        public string[] Items
+        {
+            get
+            {
                 return this.itemsField;
             }
-            set {
+            set
+            {
                 this.itemsField = value;
             }
         }
     }
-    
+
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.8.9037.0")]
     [System.SerializableAttribute()]

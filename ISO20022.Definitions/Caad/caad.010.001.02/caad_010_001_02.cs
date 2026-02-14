@@ -2007,13 +2007,10 @@ namespace ISO20022.Caad_010_001_02 {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:iso:std:iso:20022:tech:xsd:caad.010.001.02")]
     public partial class ReportContent2Choice {
         
-        private object itemField;
+        private string itemField;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Binry", typeof(string))]
-        [System.Xml.Serialization.XmlElementAttribute("PrtctdData", typeof(ProtectedData2))]
-        [System.Xml.Serialization.XmlElementAttribute("Txt", typeof(string))]
-        public object Item {
+        public string Item {
             get {
                 return this.itemField;
             }

@@ -7399,12 +7399,8 @@ namespace ISO20022.Cafm_001_001_03 {
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:iso:std:iso:20022:tech:xsd:cafm.001.001.03")]
     public partial class DataRecord1Choice {
         
-        private object[] itemsField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("Binry", typeof(string))]
-        [System.Xml.Serialization.XmlElementAttribute("Txt", typeof(string))]
-        public object[] Items {
+        private string[] itemsField;
+        public string[] Items {
             get {
                 return this.itemsField;
             }
