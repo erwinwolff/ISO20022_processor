@@ -1,8 +1,11 @@
 ﻿using ISO20022.Validator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml.Schema;
+using System.Xml.Serialization;
 
 namespace ISO20022.Tests.AutomaticValidationTests
 {
@@ -247,6 +250,113 @@ namespace ISO20022.Tests.AutomaticValidationTests
 
             Assert.IsFalse(result.Item1);
             Assert.AreEqual("Empty Xml", result.Item2);
+        }
+
+        [TestMethod]
+        public void TestPain_001_001_12_Success()
+        {
+            string xmlFile = @"<?xml version=""1.0"" encoding=""UTF-8""?>
+<Document xmlns=""urn:iso:std:iso:20022:tech:xsd:pain.001.001.12"" 
+xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" 
+xsi:schemaLocation=""urn:iso:std:iso:20022:tech:xsd:pain.001.001.12 pain.001.001.12.xsd"">
+  <CstmrCdtTrfInitn>
+    <GrpHdr>
+      <MsgId>Message-ID-4711</MsgId>
+      <CreDtTm>2010-11-11T09:30:47.000Z</CreDtTm>
+      <NbOfTxs>2</NbOfTxs>
+      <InitgPty>
+        <Nm>Initiator Name</Nm>
+      </InitgPty>
+    </GrpHdr>
+    <PmtInf>
+      <PmtInfId>Payment-Information-ID-4711</PmtInfId>
+      <PmtMtd>TRF</PmtMtd>
+      <BtchBookg>true</BtchBookg>
+      <NbOfTxs>2</NbOfTxs>
+      <CtrlSum>6655.86</CtrlSum>
+      <PmtTpInf>
+        <SvcLvl>
+          <Cd>SEPA</Cd>
+        </SvcLvl>
+      </PmtTpInf>
+      <ReqdExctnDt><Dt>2010-11-25</Dt></ReqdExctnDt>
+      <Dbtr>
+        <Nm>Debtor Name</Nm>
+      </Dbtr>
+      <DbtrAcct>
+        <Id>
+          <IBAN>DE87200500001234567890</IBAN>
+        </Id>
+      </DbtrAcct>
+      <DbtrAgt>
+        <FinInstnId>
+          <Nm>Debitor Bank Name</Nm>
+        </FinInstnId>
+      </DbtrAgt>
+      <ChrgBr>SLEV</ChrgBr>
+      <CdtTrfTxInf>
+        <PmtId>
+          <EndToEndId>OriginatorID1234</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy=""EUR"">6543.14</InstdAmt>
+        </Amt>
+        <CdtrAgt>
+          <FinInstnId>
+            <Nm>Creditor Bank Name</Nm>
+          </FinInstnId>
+        </CdtrAgt>
+        <Cdtr>
+          <Nm>Creditor Name</Nm>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <IBAN>DE21500500009876543210</IBAN>
+          </Id>
+        </CdtrAcct>
+        <RmtInf>
+          <Ustrd>Unstructured Remittance Information</Ustrd>
+        </RmtInf>
+      </CdtTrfTxInf>
+      <CdtTrfTxInf>
+        <PmtId>
+          <EndToEndId>OriginatorID1235</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy=""EUR"">112.72</InstdAmt>
+        </Amt>
+        <CdtrAgt>
+          <FinInstnId>
+         <Nm>Creditor Agent Bank Name</Nm>
+          </FinInstnId>
+        </CdtrAgt>
+        <Cdtr>
+          <Nm>Other Creditor Name</Nm>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <IBAN>DE21500500001234567897</IBAN>
+          </Id>
+        </CdtrAcct>
+        <RmtInf>
+          <Ustrd>Unstructured Remittance Information</Ustrd>
+        </RmtInf>
+      </CdtTrfTxInf>
+    </PmtInf>
+  </CstmrCdtTrfInitn>
+</Document>";
+
+            XmlISOValidator xmlISOValidator = new XmlISOValidator();
+            var res = xmlISOValidator.AutomaticValidationAsync(xmlFile).Result;
+
+            Console.WriteLine($"{res.Item2}");
+            Assert.IsTrue(res.Item1);
+
+            XmlSerializer serializerPain = new XmlSerializer(typeof(Pain_001_001_12.Document));
+
+            var painDocument = (Pain_001_001_12.Document)serializerPain.Deserialize(new StringReader(xmlFile));
+
+            Assert.IsNotNull(painDocument);
         }
     }
 }

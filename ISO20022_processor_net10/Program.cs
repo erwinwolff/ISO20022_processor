@@ -1,4 +1,5 @@
-
+using ISO20022.Interfaces;
+using ISO20022.Validator;
 using Serilog;
 
 namespace ISO20022_processor_net10
@@ -19,7 +20,7 @@ namespace ISO20022_processor_net10
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddMvc();
 
-            builder.Services.AddSingleton<ISO20022.Interfaces.IXmlISOValidator, ISO20022.Validator.XmlISOValidator>();
+            builder.Services.AddSingleton<IXmlISOValidator, XmlISOValidator>();
 
             builder.Logging.ClearProviders();
 
@@ -33,7 +34,7 @@ namespace ISO20022_processor_net10
             }
 
             app.Services.GetRequiredService<ILogger<Program>>().LogInformation("Starting ISO20022 processor...");
-            var init = app.Services.GetRequiredService<ISO20022.Interfaces.IXmlISOValidator>();
+            var init = app.Services.GetRequiredService<IXmlISOValidator>();
 
             app.UseHttpsRedirection();
 

@@ -1,5 +1,6 @@
 ﻿using ISO20022.Definitions.Definitions;
 using ISO20022.Definitions.Interfaces;
+using ISO20022.Validator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections;
@@ -42,6 +43,7 @@ namespace ISO20022.Tests
 #endif
 
         }
+
 
         [TestMethod]
         public void CreatePain00100112_And_Traverse_Success()
