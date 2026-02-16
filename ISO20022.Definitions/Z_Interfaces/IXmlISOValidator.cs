@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ISO20022.Interfaces
@@ -17,5 +18,12 @@ namespace ISO20022.Interfaces
         /// </summary>
         /// <returns></returns>
         IEnumerable<string> GetSchemaUrns();
+
+        /// <summary>
+        /// Reverse engineer the provided schema URN to determine the corresponding .NET type that represents the ISO 20022 message structure defined by that schema. This allows for dynamic deserialization of XML messages into strongly-typed objects based on their schema URN.
+        /// </summary>
+        /// <param name="urn"></param>
+        /// <returns></returns>
+        Type SchemaToType(string urn);
     }
 }

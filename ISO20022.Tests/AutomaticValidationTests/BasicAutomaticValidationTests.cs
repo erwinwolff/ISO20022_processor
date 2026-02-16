@@ -19,6 +19,39 @@ namespace ISO20022.Tests.AutomaticValidationTests
             XmlISOValidator xmlISOValidator = new XmlISOValidator();
         }
 
+        [DataRow("urn:iso:std:iso:20022:tech:xsd:pain.001.001.12")]
+        [DataRow("urn:iso:std:iso:20022:tech:xsd:pain.002.001.14")]
+        [DataRow("urn:iso:std:iso:20022:tech:xsd:pain.007.001.12")]
+        [DataRow("urn:iso:std:iso:20022:tech:xsd:pain.008.001.11")]
+        [DataRow("urn:iso:std:iso:20022:tech:xsd:pain.009.001.08")]
+        [DataRow("urn:iso:std:iso:20022:tech:xsd:pain.010.001.08")]
+        [DataRow("urn:iso:std:iso:20022:tech:xsd:pain.011.001.08")]
+        [DataRow("urn:iso:std:iso:20022:tech:xsd:pain.012.001.08")]
+        [DataRow("urn:iso:std:iso:20022:tech:xsd:pain.013.001.11")]
+        [DataRow("urn:iso:std:iso:20022:tech:xsd:pain.014.001.11")]
+        [DataRow("urn:iso:std:iso:20022:tech:xsd:pain.017.001.04")]
+        [DataRow("urn:iso:std:iso:20022:tech:xsd:pain.018.001.04")]
+        [DataTestMethod]
+        public void SpecificSchema_Test_Success(string urn)
+        {
+            XmlISOValidator xmlISOValidator = new XmlISOValidator();
+            
+            var type = xmlISOValidator.SchemaToType(urn);
+            var fullyCreatedType = Activator.CreateInstance(type);
+
+            Assert.IsNotNull(fullyCreatedType);
+
+            fullyCreatedType.TraverseAndInitAllProperties();
+            XmlSerializer serializer = new XmlSerializer(type);
+
+            using (StringWriter textWriter = new StringWriter())
+            {
+                serializer.Serialize(textWriter, fullyCreatedType);
+                string xmlOutput = textWriter.ToString();
+                Assert.IsNotEmpty(xmlOutput);
+            }
+        }
+
         [TestMethod]
         [Ignore("This test is just to print out the loaded schemas and their namespaces, not an actual unit test.")]
         public async Task AllSchemasIntoString_Success()
