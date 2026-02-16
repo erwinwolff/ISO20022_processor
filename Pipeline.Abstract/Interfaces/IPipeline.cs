@@ -2,6 +2,7 @@
 {
     public interface IPipeline
     {
+        Task ExecuteAsync();
     }
 
     public interface IPipeline<T1>

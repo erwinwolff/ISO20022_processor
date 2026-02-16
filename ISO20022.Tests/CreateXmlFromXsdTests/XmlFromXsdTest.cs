@@ -1,10 +1,8 @@
 ﻿using ISO20022.Definitions.Definitions;
 using ISO20022.Definitions.Interfaces;
-using ISO20022.Validator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;

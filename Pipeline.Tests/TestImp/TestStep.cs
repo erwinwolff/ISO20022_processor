@@ -1,6 +1,6 @@
 ﻿using Pipeline.Abstract.Interfaces;
 
-namespace Pipeline.Tests
+namespace Pipeline.Tests.TestImp
 {
     public class TestStep : IStep
     {

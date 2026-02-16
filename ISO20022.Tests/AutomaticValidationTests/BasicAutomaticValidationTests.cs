@@ -253,7 +253,7 @@ namespace ISO20022.Tests.AutomaticValidationTests
         }
 
         [TestMethod]
-        public void TestPain_001_001_12_Success()
+        public async Task TestPain_001_001_12_Success()
         {
             string xmlFile = @"<?xml version=""1.0"" encoding=""UTF-8""?>
 <Document xmlns=""urn:iso:std:iso:20022:tech:xsd:pain.001.001.12"" 
@@ -347,7 +347,7 @@ xsi:schemaLocation=""urn:iso:std:iso:20022:tech:xsd:pain.001.001.12 pain.001.001
 </Document>";
 
             XmlISOValidator xmlISOValidator = new XmlISOValidator();
-            var res = xmlISOValidator.AutomaticValidationAsync(xmlFile).Result;
+            var res = await xmlISOValidator.AutomaticValidationAsync(xmlFile);
 
             Console.WriteLine($"{res.Item2}");
             Assert.IsTrue(res.Item1);
