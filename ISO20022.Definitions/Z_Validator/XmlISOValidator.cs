@@ -16,7 +16,7 @@ namespace ISO20022.Validator
     {
         private static Assembly Assembly;
         private static string[] Xsds;
-        private static XmlSchemaSet Schemas;
+        public static XmlSchemaSet Schemas;
 
         static XmlISOValidator()
         {

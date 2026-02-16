@@ -1,5 +1,7 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Reflection;
+using System.Xml.Serialization;
 
 namespace System
 {
@@ -20,6 +22,12 @@ namespace System
             var properties = type.GetProperties();
             foreach (var property in properties)
             {
+                bool hasTopLevelXmlIgnoreAttribute = property.PropertyType.GetCustomAttributes()
+                        .Any(attr => attr.GetType() == typeof(XmlIgnoreAttribute));
+
+                if (hasTopLevelXmlIgnoreAttribute)
+                    continue;
+
                 if (property.PropertyType == typeof(bool))
                 {
                     property.SetValue(obj, false);
@@ -50,8 +58,76 @@ namespace System
 
                     if (listPropertyType == null) continue;
 
-                    var collectionInstance = Array.CreateInstance(listPropertyType, 0);
-                    property.SetValue(obj, collectionInstance);
+                    bool hasXmlIgnoreAttribute = listPropertyType.GetCustomAttributes()
+                        .Any(attr => attr.GetType() == typeof(XmlIgnoreAttribute));
+
+                    ConstructorInfo[] info = listPropertyType
+                        .GetConstructors()
+                        .Where(x => x.IsPublic && 
+                                    x.GetParameters().Count() == 0)
+                        .ToArray();
+
+                    Array collectionInstance;
+                    bool assignedValue = false;
+
+                    if (info.Any() && !hasXmlIgnoreAttribute)
+                    {
+                        collectionInstance = Array.CreateInstance(listPropertyType, 1);
+
+                        object createdType = null;
+
+                        if (listPropertyType == typeof(bool))
+                        {
+                            createdType = false;
+                            assignedValue = true;
+                        }
+
+                        if (listPropertyType == typeof(string))
+                        {
+                            createdType = property.Name;
+                            assignedValue = true;
+                        }
+
+                        if (listPropertyType == typeof(decimal))
+                        {
+                            createdType = 99M;
+                            assignedValue = true;
+                        }
+
+                        if (listPropertyType == typeof(int))
+                        {
+                            createdType = 1;
+                            assignedValue = true;
+                        }
+
+                        if (listPropertyType.IsEnum)
+                        {
+                            var enumValues = Enum.GetValues(listPropertyType);
+                            if (enumValues.Length > 0)
+                            {
+                                createdType = enumValues.GetValue(0);
+                            }
+                            assignedValue = true;
+                        }
+
+                        if (assignedValue == false && 
+                            listPropertyType != typeof(object))
+                        {
+                            createdType = Activator.CreateInstance(listPropertyType);
+                            createdType.TraverseAndInitAllProperties();
+                        }
+
+                        if (createdType != null)
+                            collectionInstance.SetValue(createdType, 0);
+                    }
+                    else
+                    {
+                        collectionInstance = Array.CreateInstance(listPropertyType, 0);
+                    }
+
+                    if (assignedValue)
+                        property.SetValue(obj, collectionInstance);
+
                     continue;
                 }
 
