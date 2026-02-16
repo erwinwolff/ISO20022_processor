@@ -1,4 +1,6 @@
-﻿namespace Pipeline.Abstract.Interfaces
+﻿using System.Threading.Tasks;
+
+namespace Pipeline.Abstract.Interfaces
 {
     public interface IPipeline
     {

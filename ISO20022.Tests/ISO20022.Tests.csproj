@@ -16,5 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ISO20022.Definitions\ISO20022.Definitions.csproj" />
+    <ProjectReference Include="..\Pipeline.Abstract\Pipeline.Abstract.csproj" />
   </ItemGroup>
 </Project>

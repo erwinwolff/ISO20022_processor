@@ -2,10 +2,8 @@
 using ISO20022.Definitions.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Collections;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
@@ -48,7 +46,7 @@ namespace ISO20022.Tests
         {
             Pain_001_001_12.Document document = new Pain_001_001_12.Document();
 
-            TraverseAndInitAllProperties(document);
+            document.TraverseAndInitAllProperties();
 
             string xmlFile = "";
 
@@ -69,7 +67,7 @@ namespace ISO20022.Tests
         {
             Camt_053_001_13.Document document = new Camt_053_001_13.Document();
 
-            TraverseAndInitAllProperties(document);
+            document.TraverseAndInitAllProperties();
 
             string xmlFile = "";
 
@@ -89,7 +87,7 @@ namespace ISO20022.Tests
         {
             Catm_003_001_14.Document document = new Catm_003_001_14.Document();
 
-            TraverseAndInitAllProperties(document);
+            document.TraverseAndInitAllProperties();
 
             string xmlFile = "";
 
@@ -109,7 +107,7 @@ namespace ISO20022.Tests
         {
             Tsmt_014_001_05.Document document = new Tsmt_014_001_05.Document();
 
-            TraverseAndInitAllProperties(document);
+            document.TraverseAndInitAllProperties();
 
             string xmlFile = "";
 
@@ -145,7 +143,7 @@ namespace ISO20022.Tests
                 XmlSerializer serializer = new XmlSerializer(tpe.Value);
                 var doc = Activator.CreateInstance(tpe.Value);
 
-                TraverseAndInitAllProperties(doc);
+                doc.TraverseAndInitAllProperties();
 
                 string xmlFile = "";
 
@@ -156,87 +154,6 @@ namespace ISO20022.Tests
                     xmlFile = Encoding.UTF8.GetString(stream.ToArray());
                 }
             });
-        }
-
-        public bool IsPropertyACollection(PropertyInfo property)
-        {
-            return (!typeof(string).Equals(property.PropertyType) &&
-                typeof(IEnumerable).IsAssignableFrom(property.PropertyType));
-        }
-
-        public bool IsPropertyACollection(Type property)
-        {
-            return typeof(IEnumerable).IsAssignableFrom(property);
-        }
-
-        public void TraverseAndInitAllProperties(object obj)
-        {
-           if (obj == null)
-                return;
-
-            var type = obj.GetType();
-            var properties = type.GetProperties();
-            foreach (var property in properties)
-            {
-                if (property.PropertyType == typeof(bool))
-                {
-                    property.SetValue(obj, false);
-                    continue;
-                }
-
-                if (property.PropertyType == typeof(string))
-                {
-                    property.SetValue(obj, property.Name);
-                    continue;
-                }
-
-                if (property.PropertyType == typeof(decimal))
-                {
-                    property.SetValue(obj, 99M);
-                    continue;
-                }
-
-                if (property.PropertyType == typeof(int))
-                {
-                    property.SetValue(obj, 1);
-                    continue;
-                }
-
-                if (IsPropertyACollection(property))
-                {
-                    var listPropertyType = property.PropertyType.GetElementType();
-
-                    if (listPropertyType == null) continue;
-                    if (IsPropertyACollection(property.PropertyType)) continue;
-
-                    var collectionInstance = Array.CreateInstance(listPropertyType, 0);
-                    property.SetValue(obj, collectionInstance);
-                    continue;
-                }
-
-                if (property.PropertyType.IsEnum)
-                {
-                    var enumValues = Enum.GetValues(property.PropertyType);
-                    if (enumValues.Length > 0)
-                    {
-                        property.SetValue(obj, enumValues.GetValue(0));
-                    }
-                    continue;
-                }
-
-                var constructor = property.PropertyType.GetConstructor(Type.EmptyTypes);
-                if (constructor != null &&
-                    constructor.GetParameters().Length == 0 &&
-                    property.PropertyType != typeof(object)) // xml validator crashes if we try to create an instance of object type, so we skip it
-                {
-                    property.SetValue(obj, Activator.CreateInstance(property.PropertyType));
-                    var value = property.GetValue(obj);
-
-                    Console.WriteLine($"{property.Name}: {value}");
-
-                    TraverseAndInitAllProperties(value);
-                }
-            }
         }
     }
 }
