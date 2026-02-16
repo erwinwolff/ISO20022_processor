@@ -9,23 +9,20 @@ namespace System
     {
         public static bool IsPropertyACollection(PropertyInfo property)
         {
-            return (!typeof(string).Equals(property.PropertyType) &&
-                typeof(IEnumerable).IsAssignableFrom(property.PropertyType));
+            return typeof(Array).IsAssignableFrom(property.PropertyType);
         }
 
-        public static void TraverseAndInitAllProperties(this object obj)
+        public static void InflateXmlPocoDefinition(this object obj)
         {
             if (obj == null)
                 return;
 
             var type = obj.GetType();
             var properties = type.GetProperties();
+
             foreach (var property in properties)
             {
-                bool hasTopLevelXmlIgnoreAttribute = property.PropertyType.GetCustomAttributes()
-                        .Any(attr => attr.GetType() == typeof(XmlIgnoreAttribute));
-
-                if (hasTopLevelXmlIgnoreAttribute)
+                if (!property.CanWrite)
                     continue;
 
                 if (property.PropertyType == typeof(bool))
@@ -56,10 +53,8 @@ namespace System
                 {
                     var listPropertyType = property.PropertyType.GetElementType();
 
-                    if (listPropertyType == null) continue;
-
-                    bool hasXmlIgnoreAttribute = listPropertyType.GetCustomAttributes()
-                        .Any(attr => attr.GetType() == typeof(XmlIgnoreAttribute));
+                    if (listPropertyType == null)
+                        continue;
 
                     ConstructorInfo[] info = listPropertyType
                         .GetConstructors()
@@ -68,9 +63,9 @@ namespace System
                         .ToArray();
 
                     Array collectionInstance;
-                    bool assignedValue = false;
+                    bool hasAssignedValue = false;
 
-                    if (info.Any() && !hasXmlIgnoreAttribute)
+                    if (info.Any())
                     {
                         collectionInstance = Array.CreateInstance(listPropertyType, 1);
 
@@ -79,25 +74,25 @@ namespace System
                         if (listPropertyType == typeof(bool))
                         {
                             createdType = false;
-                            assignedValue = true;
+                            hasAssignedValue = true;
                         }
 
                         if (listPropertyType == typeof(string))
                         {
                             createdType = property.Name;
-                            assignedValue = true;
+                            hasAssignedValue = true;
                         }
 
                         if (listPropertyType == typeof(decimal))
                         {
                             createdType = 99M;
-                            assignedValue = true;
+                            hasAssignedValue = true;
                         }
 
                         if (listPropertyType == typeof(int))
                         {
                             createdType = 1;
-                            assignedValue = true;
+                            hasAssignedValue = true;
                         }
 
                         if (listPropertyType.IsEnum)
@@ -107,25 +102,58 @@ namespace System
                             {
                                 createdType = enumValues.GetValue(0);
                             }
-                            assignedValue = true;
+                            hasAssignedValue = true;
                         }
 
-                        if (assignedValue == false && 
+                        if (hasAssignedValue == false && 
                             listPropertyType != typeof(object))
                         {
                             createdType = Activator.CreateInstance(listPropertyType);
-                            createdType.TraverseAndInitAllProperties();
+                            createdType.InflateXmlPocoDefinition();
+                            hasAssignedValue = true;
+                        }
+
+                        if (hasAssignedValue == false &&
+                           listPropertyType == typeof(object))
+                        {
+                            var xmlElementAttributes = property.GetCustomAttributes()
+                                .Where(attr => attr.GetType() == typeof(XmlElementAttribute))
+                                .Cast<XmlElementAttribute>()
+                                .ToArray();
+
+                            if (xmlElementAttributes.Any())
+                            {
+                                var suggestedType = xmlElementAttributes.First().Type;
+
+                                if (suggestedType != typeof(string))
+                                {
+                                    createdType = Activator.CreateInstance(suggestedType);
+                                    createdType.InflateXmlPocoDefinition();
+                                }
+                                else
+                                    createdType = property.Name;
+
+                                 hasAssignedValue = true;
+                            }
                         }
 
                         if (createdType != null)
                             collectionInstance.SetValue(createdType, 0);
+                    }
+                    else if (listPropertyType.IsEnum)
+                    {
+                        var enumValues = Enum.GetValues(listPropertyType);
+                        collectionInstance = Array.CreateInstance(listPropertyType, 1);
+                        collectionInstance.SetValue(enumValues.GetValue(0), 0);
+
+                        hasAssignedValue = true;
                     }
                     else
                     {
                         collectionInstance = Array.CreateInstance(listPropertyType, 0);
                     }
 
-                    if (assignedValue)
+                    if (hasAssignedValue)
                         property.SetValue(obj, collectionInstance);
 
                     continue;
@@ -143,15 +171,35 @@ namespace System
 
                 var constructor = property.PropertyType.GetConstructor(Type.EmptyTypes);
                 if (constructor != null &&
-                    constructor.GetParameters().Length == 0 &&
-                    property.PropertyType != typeof(object)) // xml validator crashes if we try to create an instance of object type, so we skip it
+                    constructor.GetParameters().Length == 0)
                 {
-                    property.SetValue(obj, Activator.CreateInstance(property.PropertyType));
+                    if (property.PropertyType != typeof(object))
+                    {
+                        if (property.CanWrite)
+                            property.SetValue(obj, Activator.CreateInstance(property.PropertyType));
+                    }
+                    else
+                    {
+                        var xmlElementAttributes = property.GetCustomAttributes()
+                            .Where(attr => attr.GetType() == typeof(XmlElementAttribute))
+                            .Cast<XmlElementAttribute>()
+                            .ToArray();
+                        if (xmlElementAttributes.Any() &&
+                            property.CanWrite)
+                        {
+                            var suggestedType = xmlElementAttributes.First().Type;
+
+                            if (suggestedType != typeof(string))
+                                property.SetValue(obj, Activator.CreateInstance(suggestedType));
+                            else
+                                property.SetValue(obj, property.Name);
+                        }
+                    }
                     var value = property.GetValue(obj);
 
                     Console.WriteLine($"{property.Name}: {value}");
 
-                    TraverseAndInitAllProperties(value);
+                    InflateXmlPocoDefinition(value);
                 }
             }
         }

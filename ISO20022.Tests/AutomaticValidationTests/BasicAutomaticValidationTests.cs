@@ -41,7 +41,7 @@ namespace ISO20022.Tests.AutomaticValidationTests
 
             Assert.IsNotNull(fullyCreatedType);
 
-            fullyCreatedType.TraverseAndInitAllProperties();
+            fullyCreatedType.InflateXmlPocoDefinition();
             XmlSerializer serializer = new XmlSerializer(type);
 
             using (StringWriter textWriter = new StringWriter())

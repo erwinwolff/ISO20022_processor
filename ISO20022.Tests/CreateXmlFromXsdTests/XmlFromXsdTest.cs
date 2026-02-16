@@ -46,7 +46,7 @@ namespace ISO20022.Tests
         {
             Pain_001_001_12.Document document = new Pain_001_001_12.Document();
 
-            document.TraverseAndInitAllProperties();
+            document.InflateXmlPocoDefinition();
 
             string xmlFile = "";
 
@@ -67,7 +67,7 @@ namespace ISO20022.Tests
         {
             Camt_053_001_13.Document document = new Camt_053_001_13.Document();
 
-            document.TraverseAndInitAllProperties();
+            document.InflateXmlPocoDefinition();
 
             string xmlFile = "";
 
@@ -87,7 +87,7 @@ namespace ISO20022.Tests
         {
             Catm_003_001_14.Document document = new Catm_003_001_14.Document();
 
-            document.TraverseAndInitAllProperties();
+            document.InflateXmlPocoDefinition();
 
             string xmlFile = "";
 
@@ -107,13 +107,33 @@ namespace ISO20022.Tests
         {
             Tsmt_014_001_05.Document document = new Tsmt_014_001_05.Document();
 
-            document.TraverseAndInitAllProperties();
+            document.InflateXmlPocoDefinition();
 
             string xmlFile = "";
 
             using (MemoryStream stream = new MemoryStream())
             {
                 XmlSerializer serializerTsmt = new XmlSerializer(typeof(Tsmt_014_001_05.Document));
+                serializerTsmt.Serialize(stream, document);
+                stream.Position = 0;
+                xmlFile = Encoding.UTF8.GetString(stream.ToArray());
+            }
+
+            Assert.IsNotEmpty(xmlFile);
+        }
+
+        [TestMethod]
+        public void CreateTsmt01900105_And_Traverse_Success()
+        {
+            Tsmt_019_001_05.Document document = new Tsmt_019_001_05.Document();
+
+            document.InflateXmlPocoDefinition();
+
+            string xmlFile = "";
+
+            using (MemoryStream stream = new MemoryStream())
+            {
+                XmlSerializer serializerTsmt = new XmlSerializer(typeof(Tsmt_019_001_05.Document));
                 serializerTsmt.Serialize(stream, document);
                 stream.Position = 0;
                 xmlFile = Encoding.UTF8.GetString(stream.ToArray());
@@ -130,7 +150,7 @@ namespace ISO20022.Tests
         }
 
         [TestMethod]
-        //[Ignore("Test takes too long for normal usage")]
+        [Ignore("Test takes too long for normal usage")]
         public async Task GetAllXsdTypes_2()
         {
             ISchemaToObjectRegistry schemaToObjectRegistry = new SchemaToObjectRegistry();
@@ -143,7 +163,7 @@ namespace ISO20022.Tests
                 XmlSerializer serializer = new XmlSerializer(tpe.Value);
                 var doc = Activator.CreateInstance(tpe.Value);
 
-                doc.TraverseAndInitAllProperties();
+                doc.InflateXmlPocoDefinition();
 
                 string xmlFile = "";
 
@@ -152,6 +172,7 @@ namespace ISO20022.Tests
                     serializer.Serialize(stream, doc);
                     stream.Position = 0;
                     xmlFile = Encoding.UTF8.GetString(stream.ToArray());
+                    Assert.IsNotEmpty(xmlFile);
                 }
             });
         }
