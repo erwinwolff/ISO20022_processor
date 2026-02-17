@@ -19,7 +19,6 @@ namespace ISO20022_processor_net10
             builder.Services.AddOpenApi();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddMvc();
-
             builder.Services.AddSingleton<IXmlISOValidator, XmlISOValidator>();
 
             builder.Logging.ClearProviders();
@@ -30,14 +29,17 @@ namespace ISO20022_processor_net10
 
             if (app.Environment.IsDevelopment())
             {
-                app.MapOpenApi();
+                app.MapOpenApi("/openapi/v1/openapi.json");
+                app.UseSwaggerUI(options =>
+                {
+                    options.SwaggerEndpoint("/openapi/v1/openapi.json", "API v1");
+                });
             }
 
             app.Services.GetRequiredService<ILogger<Program>>().LogInformation("Starting ISO20022 processor...");
             var init = app.Services.GetRequiredService<IXmlISOValidator>();
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
             app.UseStaticFiles();
 

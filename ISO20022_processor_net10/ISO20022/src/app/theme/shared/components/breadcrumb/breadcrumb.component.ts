@@ -39,7 +39,7 @@ export class BreadcrumbComponent {
   Component = input(false);
 
   navigations: NavigationItem[];
-  ComponentNavigations: NavigationItem[];
+  ComponentNavigations: NavigationItem[] = [];
   breadcrumbList: Array<string> = [];
   navigationList!: titleType[];
   componentList!: titleType[];
@@ -60,7 +60,7 @@ export class BreadcrumbComponent {
         const breadcrumbList = this.filterNavigation(this.navigations, activeLink);
         this.navigationList = breadcrumbList;
         const title = breadcrumbList[breadcrumbList.length - 1]?.title || 'Welcome';
-        this.titleService.setTitle(title + ' | Mantis  Angular Admin Template');
+        this.titleService.setTitle(title + ' | ISO20022 XML Validator');
       }
     });
   }

@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace ISO20022_processor_net10.Controllers
 {
     [Route("api/[controller]/[action]")]
+    [ApiController]
+
     public class ValidatorController : Controller
     {
         private readonly IXmlISOValidator _xmlISOValidator;
@@ -16,7 +18,7 @@ namespace ISO20022_processor_net10.Controllers
         [HttpPost]
         public IActionResult Index()
         {
-            return View();
+            return Json(new { });
         }
 
         [HttpGet]

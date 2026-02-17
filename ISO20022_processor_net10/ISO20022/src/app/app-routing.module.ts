@@ -13,7 +13,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/dashboard/default',
+        redirectTo: '/index',
         pathMatch: 'full'
       },
       {
@@ -31,6 +31,10 @@ const routes: Routes = [
       {
         path: 'sample-page',
         loadComponent: () => import('./demo/others/sample-page/sample-page.component').then((c) => c.SamplePageComponent)
+      },
+      {
+        path: 'index',
+        loadComponent: () => import('./demo/others/index-page/index-page.component').then((c) => c.IndexPageComponent)
       }
     ]
   },
