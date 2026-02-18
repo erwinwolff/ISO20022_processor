@@ -1,8 +1,9 @@
 ﻿using System;
+using Wolff.FinanceTools.Base;
 
 namespace Wolff.FinanceTools.UK
 {
-    public class UkAccntNumberToIban
+    public class UkAccntNumberToIban : CalculationBase
     {
         public string Convert(string bic, string sortCode, string accountNumber)
         {
@@ -25,60 +26,16 @@ namespace Wolff.FinanceTools.UK
             if (accountNumber.Length != 8)
                 throw new ArgumentException("AccountNumber must be 8 digits long.", nameof(accountNumber));
 
-            string iban = $"{bic}{sortCode}{accountNumber}GB00";
-            string convertedIban = "";
-            
-            foreach (char ch in iban)
-            {
-                if (ch.IsAsciiLetter())
-                {
-                    convertedIban += ch - 55;
-                }
-                else
-                {
-                    convertedIban += ch;
-                }
-            }
+            string bban = $"{bic}{sortCode}{accountNumber}GB00";
 
-            string remainder = convertedIban;
-            int lastMod97 = 0;
+            string checkDigits = GenerateCheckDigitsFromBban(bban);
 
-            int firstMod97 = int.Parse(remainder.Substring(0, 9)) % 97;
-            remainder = remainder.Replace(remainder.Substring(0, 9), string.Empty);
-
-            lastMod97 = firstMod97;
-
-            while (remainder.Length > 7)
-            {
-                int mod97 = int.Parse(lastMod97.ToString("D2") + remainder.Substring(0, 7)) % 97;
-                remainder = remainder.Replace(remainder.Substring(0, 7), string.Empty);
-
-                lastMod97 = mod97;
-            }
-
-            int resultMod97 = 98 - (int.Parse(lastMod97.ToString() + remainder) % 97);
-            string checkDigits = resultMod97.ToString("D2");
-
-            iban = $"GB{checkDigits}{bic}{sortCode}{accountNumber}";
+            string iban = $"GB{checkDigits}{bic}{sortCode}{accountNumber}";
 
             if (iban.Length != 22)
                 throw new ArgumentException("The resulting IBAN must be 22 characters long.");
 
             return iban;
-        }
-    }
-
-    internal static class Mod9710_Tools
-    {
-        public static bool IsAsciiLetter(this char c)
-        {
-            c |= ' ';
-            return IsInRange(c, 'a', 'z');
-        }
-
-        private static bool IsInRange(char c, char min, char max)
-        {
-            return (uint)c - (uint)min <= (uint)max - (uint)min;
         }
     }
 }
