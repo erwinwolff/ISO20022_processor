@@ -3,69 +3,71 @@
     <app-card cardTitle="ISO20022 XML Validator">
 
 <label for="typeahead-basic">Search for an URN:</label>
-<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search_urn" />
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">URN</span>
+        <input id="typeahead-basic" type="text" class="form-control form-control-lg" [(ngModel)]="model" [ngbTypeahead]="search_urn" />
+      </div>
+      <hr />
+       <p>Type in the input box above to search for ISO 20022 message schema URNs.</p>
+      <div *ngIf="model == null || model == ''">
+      <hr />
+        <h2>ISO 20022 Financial Messaging Standard</h2>
+      <br />
+      <section>
+        <p>
+            <strong>ISO 20022</strong> is a global financial messaging standard created by the International Organization for Standardization (ISO) to modernize how banks, payment systems, and financial institutions exchange data.
+        </p>
+        <div>
+          <b>Simple definition:</b>
+          <p>It is a universal language for payments and financial transactions — replacing older banking formats with richer, structured data.</p>
+        </div>
+      </section>
 
-<hr />
- <p>Type in the input box above to search for ISO 20022 message schema URNs.</p>
-<div *ngIf="model == null || model == ''">
-<hr />
-  <h2>ISO 20022 Financial Messaging Standard</h2>
-<br />
-<section>
-  <p>
-      <strong>ISO 20022</strong> is a global financial messaging standard created by the International Organization for Standardization (ISO) to modernize how banks, payment systems, and financial institutions exchange data.
-  </p>
-  <div>
-    <b>Simple definition:</b>
-    <p>It is a universal language for payments and financial transactions — replacing older banking formats with richer, structured data.</p>
-  </div>
-</section>
-
-<br />
-<br />
-<section>
-  <h3>Why It Exists</h3>
-  <p>Before ISO 20022, different payment networks used incompatible message formats.</p>
-  <ul>
-    <li>Limited transaction details</li>
-    <li>Manual reconciliation</li>
-    <li>Payment delays</li>
-    <li>Compliance difficulties (AML, sanctions screening)</li>
-  </ul>
-  <p>ISO 20022 solves this by using structured XML data so every system understands the same meaning.</p>
-</section>
-<br />
-<br />
-<section>
-  <h3>Core Characteristics</h3>
-  <table>
-    <tr>
-      <th>Feature</th>
-      <th>Description</th>
-      <th>Benefit</th>
-    </tr>
-    <tr>
-      <td>Structured Data</td>
-      <td>XML tagged fields</td>
-      <td>Automatic processing</td>
-    </tr>
-    <tr>
-      <td>Rich Information</td>
-      <td>Sender, receiver, invoice, purpose</td>
-      <td>Better tracking</td>
-    </tr>
-    <tr>
-      <td>Global Interoperability</td>
-      <td>Common international format</td>
-      <td>Cross-border compatibility</td>
-    </tr>
-    <tr>
-      <td>Extensibility</td>
-      <td>Can evolve without breaking systems</td>
-      <td>Future-proof payments</td>
-    </tr>
-  </table>
-</section>
+      <br />
+      <br />
+      <section>
+        <h3>Why It Exists</h3>
+        <p>Before ISO 20022, different payment networks used incompatible message formats.</p>
+        <ul>
+          <li>Limited transaction details</li>
+          <li>Manual reconciliation</li>
+          <li>Payment delays</li>
+          <li>Compliance difficulties (AML, sanctions screening)</li>
+        </ul>
+        <p>ISO 20022 solves this by using structured XML data so every system understands the same meaning.</p>
+      </section>
+      <br />
+      <br />
+      <section>
+        <h3>Core Characteristics</h3>
+        <table>
+          <tr>
+            <th>Feature</th>
+            <th>Description</th>
+            <th>Benefit</th>
+          </tr>
+          <tr>
+            <td>Structured Data</td>
+            <td>XML tagged fields</td>
+            <td>Automatic processing</td>
+          </tr>
+          <tr>
+            <td>Rich Information</td>
+            <td>Sender, receiver, invoice, purpose</td>
+            <td>Better tracking</td>
+          </tr>
+          <tr>
+            <td>Global Interoperability</td>
+            <td>Common international format</td>
+            <td>Cross-border compatibility</td>
+          </tr>
+          <tr>
+            <td>Extensibility</td>
+            <td>Can evolve without breaking systems</td>
+            <td>Future-proof payments</td>
+          </tr>
+        </table>
+      </section>
 
 <br />
 <br />

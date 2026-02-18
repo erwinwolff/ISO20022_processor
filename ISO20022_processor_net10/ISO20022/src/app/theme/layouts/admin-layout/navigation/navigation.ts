@@ -20,6 +20,23 @@ export interface NavigationItem {
 
 export const NavigationItems: NavigationItem[] = [
   {
+    id: 'index',
+    title: 'XML 20022 Validator',
+    type: 'group',
+    icon: 'icon-navigation',
+    children: [
+      {
+        id: 'XML20022Validator',
+        title: 'XML 20022 Validator',
+        type: 'item',
+        classes: 'nav-item',
+        url: '/index',
+        icon: 'profile',
+        breadcrumbs: false
+      }
+    ]
+  },
+  {
     id: 'dashboard',
     title: 'Dashboard',
     type: 'group',

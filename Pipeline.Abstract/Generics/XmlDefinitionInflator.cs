@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Linq;
+﻿using System.Linq;
 using System.Reflection;
 using System.Xml.Serialization;
 
@@ -7,7 +6,7 @@ namespace System
 {
     public static class XmlDefinitionInflator
     {
-        public static bool IsPropertyACollection(PropertyInfo property)
+        private static bool IsPropertyACollection(PropertyInfo property)
         {
             return typeof(Array).IsAssignableFrom(property.PropertyType);
         }
@@ -196,8 +195,6 @@ namespace System
                         }
                     }
                     var value = property.GetValue(obj);
-
-                    Console.WriteLine($"{property.Name}: {value}");
 
                     InflateXmlPocoDefinition(value);
                 }
