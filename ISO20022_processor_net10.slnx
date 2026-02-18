@@ -5,4 +5,5 @@
   <Project Path="Pipeline.Abstract/Pipeline.Abstract.csproj" />
   <Project Path="Pipeline.Implementation/Pipeline.Implementation.csproj" />
   <Project Path="Pipeline.Tests/Pipeline.Tests.csproj" />
+  <Project Path="Wolff.FinanceTools/Wolff.FinanceTools.csproj" Id="b73201b1-a98e-44ef-9892-59f17791f157" />
 </Solution>

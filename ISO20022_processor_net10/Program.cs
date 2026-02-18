@@ -1,3 +1,4 @@
+using IbanNet.DependencyInjection.ServiceProvider;
 using ISO20022.Interfaces;
 using ISO20022.Validator;
 using Serilog;
@@ -20,7 +21,7 @@ namespace ISO20022_processor_net10
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddMvc();
             builder.Services.AddSingleton<IXmlISOValidator, XmlISOValidator>();
-
+            builder.Services.AddIbanNet();
             builder.Logging.ClearProviders();
 
             builder.Host.UseSerilog();

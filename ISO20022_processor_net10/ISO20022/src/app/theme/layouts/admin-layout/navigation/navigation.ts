@@ -21,13 +21,13 @@ export interface NavigationItem {
 export const NavigationItems: NavigationItem[] = [
   {
     id: 'index',
-    title: 'XML 20022 Validator',
+    title: '20022 XML Validator',
     type: 'group',
     icon: 'icon-navigation',
     children: [
       {
         id: 'XML20022Validator',
-        title: 'XML 20022 Validator',
+        title: '20022 XML Validator',
         type: 'item',
         classes: 'nav-item',
         url: '/index',
