@@ -7,7 +7,6 @@ namespace ISO20022_processor_net10.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
-
     public class ValidatorController : Controller
     {
         private readonly IXmlISOValidator _xmlISOValidator;
@@ -18,7 +17,7 @@ namespace ISO20022_processor_net10.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ValidateXml(string xml)
+        public async Task<IActionResult> ValidateXml([FromQuery] string xml)
         {
             ArgumentException.ThrowIfNullOrEmpty(xml);
 
@@ -36,7 +35,7 @@ namespace ISO20022_processor_net10.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetXmlByUrl(string urn)
+        public IActionResult GetXmlByUrl([FromQuery] string urn)
         {
             ArgumentException.ThrowIfNullOrEmpty(urn);
 

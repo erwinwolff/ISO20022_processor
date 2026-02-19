@@ -27,7 +27,7 @@ namespace ISO20022_processor_net10.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(string iban)
+        public IActionResult Index([FromQuery] string iban)
         {
             ArgumentException.ThrowIfNullOrEmpty(iban);
 
@@ -41,7 +41,7 @@ namespace ISO20022_processor_net10.Controllers
         }
 
         [HttpGet]
-        public IActionResult IbanGenerator(string countryCode)
+        public IActionResult IbanGenerator([FromQuery] string countryCode)
         {
             ArgumentException.ThrowIfNullOrEmpty(countryCode);
 
@@ -55,9 +55,10 @@ namespace ISO20022_processor_net10.Controllers
         }
 
         [HttpGet]
-        public IActionResult UkAccntToIbanCalc(string bic,
-            string sortcode,
-            string accountNr)
+        public IActionResult UkAccntToIbanCalc(
+            [FromQuery] string bic,
+            [FromQuery] string sortcode,
+            [FromQuery] string accountNr)
         {
             ArgumentException.ThrowIfNullOrEmpty(bic);
             ArgumentException.ThrowIfNullOrEmpty(sortcode);
