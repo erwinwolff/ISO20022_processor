@@ -2,6 +2,7 @@ using IbanNet.DependencyInjection.ServiceProvider;
 using ISO20022.Interfaces;
 using ISO20022.Validator;
 using Serilog;
+using Wolff.FinanceTools.UK;
 
 namespace ISO20022_processor_net10
 {
@@ -21,6 +22,7 @@ namespace ISO20022_processor_net10
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddMvc();
             builder.Services.AddSingleton<IXmlISOValidator, XmlISOValidator>();
+            builder.Services.AddTransient<IUkAccntNumberToIban, UkAccntNumberToIban>();
             builder.Services.AddIbanNet();
             builder.Logging.ClearProviders();
 

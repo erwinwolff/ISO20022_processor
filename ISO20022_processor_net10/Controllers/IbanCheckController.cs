@@ -1,6 +1,7 @@
 ﻿using IbanNet;
 using IbanNet.Registry;
 using Microsoft.AspNetCore.Mvc;
+using Wolff.FinanceTools.UK;
 
 namespace ISO20022_processor_net10.Controllers
 {
@@ -12,14 +13,17 @@ namespace ISO20022_processor_net10.Controllers
         private readonly IIbanValidator _ibanValidator;
         private readonly IIbanGenerator _ibanGenerator;
         private readonly IIbanRegistry _ibanRegistry;
+        private readonly IUkAccntNumberToIban _ukAccntNumberToIban;
 
         public IbanCheckController(IIbanValidator  ibanValidator,
             IIbanGenerator ibanGenerator,
-            IIbanRegistry ibanRegistry)
+            IIbanRegistry ibanRegistry,
+            IUkAccntNumberToIban ukAccntNumberToIban)
         {
             _ibanValidator = ibanValidator;
             _ibanGenerator = ibanGenerator;
             _ibanRegistry = ibanRegistry;
+            _ukAccntNumberToIban = ukAccntNumberToIban;
         }
 
         [HttpGet]
@@ -51,17 +55,15 @@ namespace ISO20022_processor_net10.Controllers
         }
 
         [HttpGet]
-        public IActionResult UkAccntToIbanCalc(string bic, string accountNr, string sortcode)
+        public IActionResult UkAccntToIbanCalc(string bic,
+            string sortcode,
+            string accountNr)
         {
             ArgumentException.ThrowIfNullOrEmpty(bic);
-            ArgumentException.ThrowIfNullOrEmpty(accountNr);
             ArgumentException.ThrowIfNullOrEmpty(sortcode);
+            ArgumentException.ThrowIfNullOrEmpty(accountNr);
 
-            bic = bic.Substring(0, 4);
-
-
-
-            return Ok("IBAN");
+            return Ok(_ukAccntNumberToIban.Convert(bic, sortcode, accountNr));
         }
     }
 }

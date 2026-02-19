@@ -26,6 +26,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ISO20022.Definitions\ISO20022.Definitions.csproj" />
     <ProjectReference Include="..\Pipeline.Implementation\Pipeline.Implementation.csproj" />
+    <ProjectReference Include="..\Wolff.FinanceTools\Wolff.FinanceTools.csproj" />
   </ItemGroup>
 
   <ItemGroup>

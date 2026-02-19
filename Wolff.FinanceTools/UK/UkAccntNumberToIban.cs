@@ -3,7 +3,7 @@ using Wolff.FinanceTools.Base;
 
 namespace Wolff.FinanceTools.UK
 {
-    public class UkAccntNumberToIban : CalculationBase
+    public class UkAccntNumberToIban : CalculationBase, IUkAccntNumberToIban
     {
         public string Convert(string bic, string sortCode, string accountNumber)
         {
