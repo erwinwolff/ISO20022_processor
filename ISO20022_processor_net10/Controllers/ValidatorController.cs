@@ -18,11 +18,13 @@ namespace ISO20022_processor_net10.Controllers
         }
 
         [HttpPost]
-        public IActionResult ValidateXml(string xml)
+        public async Task<IActionResult> ValidateXml(string xml)
         {
             ArgumentException.ThrowIfNullOrEmpty(xml);
 
-            return Json(new { });
+            var validationResult = await _xmlISOValidator.AutomaticValidationAsync(xml);
+
+            return Json(new { valid = validationResult.Item1, message = validationResult.Item2 });
         }
 
         [HttpGet]
