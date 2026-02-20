@@ -5,6 +5,8 @@ import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { AppRoutingModule } from './app/app-routing.module';
 import { AppComponent } from './app/app.component';
 
+import 'prismjs/components/prism-xml-doc';
+
 if (environment.production) {
   enableProdMode();
 }
