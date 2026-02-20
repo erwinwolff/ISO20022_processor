@@ -17,6 +17,10 @@ const routes: Routes = [
         pathMatch: 'full'
       },
       {
+        path: 'index',
+        loadComponent: () => import('./demo/others/index-page/index-page.component').then((c) => c.IndexPageComponent)
+      },
+      {
         path: 'dashboard/default',
         loadComponent: () => import('./demo/dashboard/default/default.component').then((c) => c.DefaultComponent)
       },
@@ -31,10 +35,6 @@ const routes: Routes = [
       {
         path: 'sample-page',
         loadComponent: () => import('./demo/others/sample-page/sample-page.component').then((c) => c.SamplePageComponent)
-      },
-      {
-        path: 'index',
-        loadComponent: () => import('./demo/others/index-page/index-page.component').then((c) => c.IndexPageComponent)
       }
     ]
   },

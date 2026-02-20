@@ -5,7 +5,7 @@
 <label for="typeahead-basic">Search for an URN:</label>
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">URN</span>
-        <input id="typeahead-basic" type="text" class="form-control form-control-lg" [(ngModel)]="model" [ngbTypeahead]="search_urn" />
+        <input id="typeahead-basic" type="text" class="form-control form-control-lg" [(ngModel)]="model" [ngbTypeahead]="search_urn" (selectItem)="show_sample_xml($event)" />
       </div>
       <hr />
        <p>Type in the input box above to search for ISO 20022 message schema URNs.</p>
@@ -149,6 +149,25 @@
     
 </section>
     </div>
+
+      <div *ngIf="model != null && model.length > 10">
+        <div class="row">
+          <div class="col-sm-5 col-md-6">
+            Full XML of {{ model }}. This example is not a valid message (yet).
+            To make this example into a valid message you probably cut it down to what you need.
+            <br />
+            <br />
+            <br />
+            <pre id="exampleArea">
+{{ xmlDefinition }}
+            </pre>
+          </div>
+          <div class="col-sm-5 col-md-6">
+            <input type="button" value="Validate!" class="btn btn-success" /><br /> 
+            <textarea class="form-control"  style="height: 90%; width: 100%;"></textarea>
+          </div>
+        </div>
+      </div>
     </app-card>
   </div>
 </div>
