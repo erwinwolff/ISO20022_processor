@@ -1,14 +1,12 @@
 ﻿using IbanNet;
 using IbanNet.Registry;
+using ISO20022_processor_net10.Base;
 using Microsoft.AspNetCore.Mvc;
 using Wolff.FinanceTools.UK;
 
 namespace ISO20022_processor_net10.Controllers
 {
-    [Route("api/[controller]/[action]")]
-    [ApiController]
-
-    public class IbanCheckController : Controller
+    public class IbanCheckController : BaseController
     {
         private readonly IIbanValidator _ibanValidator;
         private readonly IIbanGenerator _ibanGenerator;

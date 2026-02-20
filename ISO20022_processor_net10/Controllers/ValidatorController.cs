@@ -1,13 +1,12 @@
 ﻿using ISO20022.Interfaces;
+using ISO20022_processor_net10.Base;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using System.Xml.Serialization;
 
 namespace ISO20022_processor_net10.Controllers
 {
-    [Route("api/[controller]/[action]")]
-    [ApiController]
-    public class ValidatorController : Controller
+    public class ValidatorController : BaseController
     {
         private readonly IXmlISOValidator _xmlISOValidator;
 
@@ -35,7 +34,7 @@ namespace ISO20022_processor_net10.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetXmlByUrl([FromQuery] string urn)
+        public IActionResult GetXmlByUrn([FromQuery] string urn)
         {
             ArgumentException.ThrowIfNullOrEmpty(urn);
 
@@ -57,7 +56,6 @@ namespace ISO20022_processor_net10.Controllers
             }
 
             return Json(new { xmlDef = entireDefinition });
-            
         }
     }
 }
