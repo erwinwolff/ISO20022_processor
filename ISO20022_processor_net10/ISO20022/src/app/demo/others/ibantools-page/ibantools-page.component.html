@@ -21,19 +21,23 @@
     <app-card cardTitle="UK Account Number to IBAN">
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">Bank BIC</span>
-        <input type="text" class="form-control form-control-lg" />
+        <input type="text" class="form-control form-control-lg" [(ngModel)]="bicCode" />
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">Sort code</span>
-        <input type="text" class="form-control form-control-lg" />
+        <input type="text" class="form-control form-control-lg" [(ngModel)]="sortCode" />
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">Account Number</span>
-        <input type="text" class="form-control form-control-lg" />
+        <input type="text" class="form-control form-control-lg" [(ngModel)]="accountNumber" />
       </div>
-      <input type="button" class="btn btn-success" value="Convert" />
-      <div class="target">
-        <pre></pre>
+      <input type="button" class="btn btn-success" value="Convert" (click)="convertUKaccnt()" />
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-12">
+          <h4>{{ ukAcctIban }}</h4>
+        </div>
       </div>
     </app-card>
   </div>

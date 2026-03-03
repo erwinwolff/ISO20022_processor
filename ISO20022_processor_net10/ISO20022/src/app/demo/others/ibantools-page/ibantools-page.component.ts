@@ -15,6 +15,10 @@ interface selectionItem {
   nativeName: string;
 }
 
+interface ukResult {
+  iban: string;
+}
+
 interface ibanCheck {
   error: string;
   isValid: boolean;
@@ -44,6 +48,12 @@ export class IbantoolsPageComponent {
   public ibantobevalidated: string = "";
   public outputText: string = "";
 
+  public bicCode: string = "";
+  public sortCode: string = "";
+  public accountNumber: string = "";
+
+  public ukAcctIban: string = "";
+
   public generateIban(): void {
     if (this.country) {
       this.http.get<string>('/api/IbanCheck/IbanGenerator?countryCode=' + this.country, {
@@ -58,6 +68,8 @@ export class IbantoolsPageComponent {
   }
 
   public validateIban(): void {
+    this.outputText = "";
+
     if (this.ibantobevalidated) {
       this.http.get<ibanCheck>('/api/IbanCheck/Index?iban=' + this.ibantobevalidated, {
         cache: 'no-cache',
@@ -74,7 +86,21 @@ export class IbantoolsPageComponent {
             this.cdRef.detectChanges();
           }
         })
+    }
+  }
 
+  // Bank of England	GB91BKEN10000041610008
+  // BKEN   100000    41610008
+  public convertUKaccnt(): void {
+    if (this.bicCode && this.sortCode && this.accountNumber) {
+      this.http.get<ukResult>('/api/IbanCheck/UkAccntToIbanCalc?bic=' + this.bicCode + '&sortcode=' + this.sortCode + '&accountNr=' + this.accountNumber, {
+        cache: 'no-cache',
+      })
+        .subscribe((res) => {
+          this.ukAcctIban = res.iban;
+
+          this.cdRef.detectChanges();
+        });
     }
   }
 }

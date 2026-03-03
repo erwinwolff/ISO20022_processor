@@ -62,7 +62,7 @@ namespace ISO20022_processor_net10.Controllers
             ArgumentException.ThrowIfNullOrEmpty(sortcode);
             ArgumentException.ThrowIfNullOrEmpty(accountNr);
 
-            return Ok(_ukAccntNumberToIban.Convert(bic, sortcode, accountNr));
+            return Ok(new { iban = _ukAccntNumberToIban.Convert(bic, sortcode, accountNr) });
         }
     }
 }
