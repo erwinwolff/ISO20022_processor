@@ -54,6 +54,8 @@ export class IndexPageComponent {
       .subscribe(x => {
         if (x.valid) this.valResult = "VALID: " + x.message;
         if (!x.valid) this.valResult = "INVALID: " + x.message;
+
+        this.cdRef.detectChanges();
       });
   }
 
