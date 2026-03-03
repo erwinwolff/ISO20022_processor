@@ -1,5 +1,6 @@
 ﻿using ISO20022.Interfaces;
 using ISO20022_processor_net10.Base;
+using ISO20022_processor_net10.Requests;
 using Microsoft.AspNetCore.Mvc;
 using System.Text;
 using System.Xml.Serialization;
@@ -16,11 +17,11 @@ namespace ISO20022_processor_net10.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ValidateXml([FromQuery] string xml)
+        public async Task<IActionResult> ValidateXml([FromBody] XmlToValidate xml)
         {
-            ArgumentException.ThrowIfNullOrEmpty(xml);
+            ArgumentException.ThrowIfNullOrEmpty(xml.xml);
 
-            var validationResult = await _xmlISOValidator.AutomaticValidationAsync(xml);
+            var validationResult = await _xmlISOValidator.AutomaticValidationAsync(xml.xml);
 
             return Json(new { valid = validationResult.Item1, message = validationResult.Item2 });
         }

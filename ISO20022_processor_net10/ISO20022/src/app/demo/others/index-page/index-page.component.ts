@@ -14,6 +14,10 @@ interface selectionItem {
   item: string;
 }
 
+interface xmlValidation {
+  valid: boolean;
+  message: string;
+}
 interface xmlDefinitionFromApi {
   xmlDef: string;
 }
@@ -31,15 +35,27 @@ export class IndexPageComponent {
     this.http.get<string[]>('/api/Validator/GetSchemaUrns', {
       cache: 'no-cache',
     }).subscribe(urns => {
-     this.urns = urns;
-     var urn = this.getQueryParameter('urn');
-     if (urn && from(urns).any(x => x == urn)) {
-       this.model = urn;
-       this.show_sample_xml({ item: urn });
-       this.cdRef.detectChanges();
-     }
-  })
-}
+      this.urns = urns;
+      var urn = this.getQueryParameter('urn');
+      if (urn && from(urns).any(x => x == urn)) {
+        this.model = urn;
+        this.show_sample_xml({ item: urn });
+        this.cdRef.detectChanges();
+      }
+    })
+  }
+
+  public entryXml: string;
+
+  public validateXml(): void {
+    this.http.post<xmlValidation>('/api/Validator/ValidateXml', {
+      xml: this.entryXml,
+    })
+      .subscribe(x => {
+        if (x.valid) this.valResult = "VALID: " + x.message;
+        if (!x.valid) this.valResult = "INVALID: " + x.message;
+      });
+  }
 
   show_sample_xml($event: selectionItem): void {
     if ($event) {
@@ -61,6 +77,7 @@ export class IndexPageComponent {
   }
 
   urns: string[] = [];
+  valResult: string = "";
 
   model: string | undefined;
   xmlDefinition: string | undefined;

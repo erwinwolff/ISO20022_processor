@@ -157,13 +157,22 @@
             To make this example into a valid message you probably cut it down to what you need.
             <br />
             <br />
-            <pre id="exampleArea" class="language-xml">
-{{ xmlDefinition }}
+            <pre id="exampleArea" class="language-xml">{{ xmlDefinition }}
             </pre>
           </div>
           <div class="col-sm-5 col-md-6">
-            <input type="button" value="Validate!" class="btn btn-success" /><br /> 
-            <textarea class="form-control"  style="height: 90%; width: 100%;"></textarea>
+            <div class="row">
+              <div class="col-2">
+                <input type="button" value="Validate!" class="btn btn-success" (click)="validateXml()" /><br />
+              </div>
+              <div class="col-10">
+                {{ valResult }}
+              </div>
+            </div>
+
+            <textarea class="form-control" style="height: 90%; width: 100%;" [(ngModel)]="entryXml"></textarea>
+
+
           </div>
         </div>
       </div>
