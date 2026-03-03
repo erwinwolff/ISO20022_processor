@@ -31,6 +31,7 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="ISO20022\src\app\demo\others\ibantools-page\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

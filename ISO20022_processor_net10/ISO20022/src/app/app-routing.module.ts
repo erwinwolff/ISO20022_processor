@@ -21,6 +21,10 @@ const routes: Routes = [
         loadComponent: () => import('./demo/others/index-page/index-page.component').then((c) => c.IndexPageComponent)
       },
       {
+        path: 'ibantools',
+        loadComponent: () => import('./demo/others/ibantools-page/ibantools-page.component').then((c) => c.IbantoolsPageComponent)
+      },
+      {
         path: 'dashboard/default',
         loadComponent: () => import('./demo/dashboard/default/default.component').then((c) => c.DefaultComponent)
       },

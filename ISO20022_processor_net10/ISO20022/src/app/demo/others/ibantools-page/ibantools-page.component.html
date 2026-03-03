@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-sm-6">
+    <app-card cardTitle="IBAN validation check">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">IBAN</span>
+        <input type="text" class="form-control form-control-lg" />
+      </div>
+
+      <input type="button" class="btn btn-success" value="Validate" />
+    </app-card>
+</div>
+  <div class="col-sm-6">
+    <app-card cardTitle="UK Account Number to IBAN">
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Bank BIC</span>
+        <input type="text" class="form-control form-control-lg" />
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Sort code</span>
+        <input type="text" class="form-control form-control-lg" />
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">Account Number</span>
+        <input type="text" class="form-control form-control-lg" />
+      </div>
+      <input type="button" class="btn btn-success" value="Convert" />
+      <div class="target">
+        <pre></pre>
+      </div>
+    </app-card>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <app-card cardTitle="IBAN Generator (100 per round of generation)">
+      <label for="cntry">Select country</label>
+
+      <div class="input-group mb-3">
+        <select class="form-control" id="cntry">
+        </select>
+      </div>
+
+      <input type="button" class="btn btn-success" value="Generate" />
+      <div class="target">
+        <pre></pre>
+      </div>
+    </app-card>
+  </div>
+  
+</div>
