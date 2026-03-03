@@ -3,10 +3,18 @@
     <app-card cardTitle="IBAN validation check">
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">IBAN</span>
-        <input type="text" class="form-control form-control-lg" />
+        <input type="text" class="form-control form-control-lg" [(ngModel)]="ibantobevalidated" />
       </div>
 
-      <input type="button" class="btn btn-success" value="Validate" />
+      <input type="button" class="btn btn-success" value="Validate" (click)="validateIban()" />
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-12">
+          <h4>{{ outputText }}</h4>
+        </div>
+      </div>
+
     </app-card>
 </div>
   <div class="col-sm-6">
@@ -32,17 +40,24 @@
 </div>
 <div class="row">
   <div class="col-sm-6">
-    <app-card cardTitle="IBAN Generator (100 per round of generation)">
+    <app-card cardTitle="IBAN Generator">
       <label for="cntry">Select country</label>
 
       <div class="input-group mb-3">
-        <select class="form-control" id="cntry">
-        </select>
+        <ng-select class="form-control" id="cntry" [(ngModel)]="country" [items]="supportedCountries"
+                   bindLabel="englishName"
+                   bindValue="twoLetterISORegionName">
+        </ng-select>
       </div>
 
-      <input type="button" class="btn btn-success" value="Generate" />
-      <div class="target">
-        <pre></pre>
+      <input type="button" class="btn btn-success" value="Generate" (click)="generateIban()" />
+      <br />
+      <br />
+
+      <div class="row">
+        <div class="col-12">
+          <h4>{{ generatedIban }}</h4>
+        </div>
       </div>
     </app-card>
   </div>

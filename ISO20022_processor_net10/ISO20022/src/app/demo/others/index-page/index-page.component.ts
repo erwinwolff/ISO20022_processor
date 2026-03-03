@@ -28,7 +28,9 @@ export class IndexPageComponent {
 
   constructor(private http: HttpClient, private cdRef: ChangeDetectorRef) {
 
-   this.http.get<string[]>('/api/Validator/GetSchemaUrns').subscribe(urns => {
+    this.http.get<string[]>('/api/Validator/GetSchemaUrns', {
+      cache: 'no-cache',
+    }).subscribe(urns => {
      this.urns = urns;
      var urn = this.getQueryParameter('urn');
      if (urn && from(urns).any(x => x == urn)) {
@@ -41,7 +43,9 @@ export class IndexPageComponent {
 
   show_sample_xml($event: selectionItem): void {
     if ($event) {
-      this.http.get<xmlDefinitionFromApi>('/api/Validator/GetXmlByUrn?urn=' + $event.item)
+      this.http.get<xmlDefinitionFromApi>('/api/Validator/GetXmlByUrn?urn=' + $event.item, {
+        cache: 'no-cache',
+      })
         .subscribe(x => {
           this.xmlDefinition = x.xmlDef;
           this.cdRef.detectChanges();
