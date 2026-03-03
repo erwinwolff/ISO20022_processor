@@ -28,14 +28,14 @@ export class IndexPageComponent {
 
   constructor(private http: HttpClient, private cdRef: ChangeDetectorRef) {
 
-    this.http.get<string[]>('/api/Validator/GetSchemaUrns').subscribe(urns => {
-   this.urns = urns;
-   var urn = this.getQueryParameter('urn');
-   if (urn && from(urns).any(x => x == urn)) {
-     this.model = urn;
-     this.show_sample_xml({ item: urn });
-     this.cdRef.detectChanges();
-   }
+   this.http.get<string[]>('/api/Validator/GetSchemaUrns').subscribe(urns => {
+     this.urns = urns;
+     var urn = this.getQueryParameter('urn');
+     if (urn && from(urns).any(x => x == urn)) {
+       this.model = urn;
+       this.show_sample_xml({ item: urn });
+       this.cdRef.detectChanges();
+     }
   })
 }
 
@@ -44,6 +44,7 @@ export class IndexPageComponent {
       this.http.get<xmlDefinitionFromApi>('/api/Validator/GetXmlByUrn?urn=' + $event.item)
         .subscribe(x => {
           this.xmlDefinition = x.xmlDef;
+          this.cdRef.detectChanges();
           Prism.highlightElement(document.getElementById('exampleArea'), false, () => { });
           this.cdRef.detectChanges();
         });
