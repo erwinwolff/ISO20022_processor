@@ -1,3 +1,5 @@
+![Alt text](https://raw.githubusercontent.com/erwinwolff/ISO20022_processor/01b27402bed3f2119f51b6083fcf14cd89839755/header.jpg "ISO20022 Processor")
+
 # ISO20022 Processor
 
 A modular, pipeline-based ISO 20022 XML message processor built on .NET Core.  
