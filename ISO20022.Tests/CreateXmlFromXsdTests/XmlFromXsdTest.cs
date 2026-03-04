@@ -156,9 +156,9 @@ namespace ISO20022.Tests
             ISchemaToObjectRegistry schemaToObjectRegistry = new SchemaToObjectRegistry();
             Assert.IsTrue(schemaToObjectRegistry.SchemaToObjectMap.Any());
 
-            Parallel.ForEach(schemaToObjectRegistry.SchemaToObjectMap, 
+            Parallel.ForEach(schemaToObjectRegistry.SchemaToObjectMap,
                 new ParallelOptions { MaxDegreeOfParallelism = Environment.ProcessorCount },
-                (tpe, tkn) => 
+                (tpe, tkn) =>
             {
                 XmlSerializer serializer = new XmlSerializer(tpe.Value);
                 var doc = Activator.CreateInstance(tpe.Value);

@@ -13,7 +13,7 @@ namespace ISO20022_processor_net10.Controllers
         private readonly IIbanRegistry _ibanRegistry;
         private readonly IUkAccntNumberToIban _ukAccntNumberToIban;
 
-        public IbanCheckController(IIbanValidator  ibanValidator,
+        public IbanCheckController(IIbanValidator ibanValidator,
             IIbanGenerator ibanGenerator,
             IIbanRegistry ibanRegistry,
             IUkAccntNumberToIban ukAccntNumberToIban)

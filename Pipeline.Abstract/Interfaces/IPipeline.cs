@@ -10,7 +10,7 @@ namespace Pipeline.Abstract.Interfaces
     public interface IPipeline<T1>
         : IPipeline
         where T1 : class, IStep
-        
+
     {
     }
 

@@ -57,7 +57,7 @@ namespace System
 
                     ConstructorInfo[] info = listPropertyType
                         .GetConstructors()
-                        .Where(x => x.IsPublic && 
+                        .Where(x => x.IsPublic &&
                                     x.GetParameters().Count() == 0)
                         .ToArray();
 
@@ -104,7 +104,7 @@ namespace System
                             hasAssignedValue = true;
                         }
 
-                        if (hasAssignedValue == false && 
+                        if (hasAssignedValue == false &&
                             listPropertyType != typeof(object))
                         {
                             createdType = Activator.CreateInstance(listPropertyType);
@@ -132,7 +132,7 @@ namespace System
                                 else
                                     createdType = property.Name;
 
-                                 hasAssignedValue = true;
+                                hasAssignedValue = true;
                             }
                         }
 

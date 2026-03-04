@@ -31,11 +31,11 @@ namespace ISO20022.Tests.AutomaticValidationTests
         [DataRow("urn:iso:std:iso:20022:tech:xsd:pain.014.001.11")]
         [DataRow("urn:iso:std:iso:20022:tech:xsd:pain.017.001.04")]
         [DataRow("urn:iso:std:iso:20022:tech:xsd:pain.018.001.04")]
-        [DataTestMethod]
+        [TestMethod]
         public void SpecificSchema_Test_Success(string urn)
         {
             XmlISOValidator xmlISOValidator = new XmlISOValidator();
-            
+
             var type = xmlISOValidator.SchemaToType(urn);
             var fullyCreatedType = Activator.CreateInstance(type);
 

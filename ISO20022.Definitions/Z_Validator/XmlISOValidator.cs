@@ -70,7 +70,7 @@ namespace ISO20022.Validator
             {
                 return (false, "Invalid Xml");
             }
-            
+
             var namespaceAttribute = string.Empty;
             XmlReaderSettings settings = new XmlReaderSettings();
             settings.ValidationType = ValidationType.Schema;
