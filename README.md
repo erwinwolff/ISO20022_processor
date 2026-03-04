@@ -1,6 +1,6 @@
 # ISO20022 Processor
 
-A modular, pipeline-based ISO 20022 XML message processor built on .NET.  
+A modular, pipeline-based ISO 20022 XML message processor built on .NET Core.  
 This project provides structured message definitions, validation capabilities, and a flexible processing pipeline for handling ISO 20022 financial messages in enterprise systems.
 
 ---
@@ -139,4 +139,4 @@ Contributions are welcome. Please ensure:
 
 ## License
 
-Please refer to the repository for licensing information.
+Everything is MIT license unless specified otherwise
