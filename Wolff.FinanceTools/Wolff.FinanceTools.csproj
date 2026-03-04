@@ -1,10 +1,34 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net10.0;net9.0;net8.0;net48;net481</TargetFrameworks>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <TargetFrameworks>net10.0;net9.0;net8.0;net48;net481;netstandard2.1</TargetFrameworks>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <Authors>Erwin Wolff</Authors>
+    <Company>Micro Formatica</Company>
+    <Description>Wolff UK finance tools gives you a UK account number to IBAN calculation</Description>
+    <PackageProjectUrl>https://www.linkedin.com/in/erwin-wolff-b8a6947/</PackageProjectUrl>
+    <PackageLicenseFile>MIT-License.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <Product>$(AssemblyName).UK</Product>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageReadmeFile>Readme.MD</PackageReadmeFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Pack="true" Include="MIT-License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Pack="true" Include="Readme.MD">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+        <None Include="MIT-License.txt" Pack="true" PackagePath="" />
+    </ItemGroup>
+  <ItemGroup>
+        <None Include="Readme.MD" Pack="true" PackagePath="" />
+    </ItemGroup>
 </Project>

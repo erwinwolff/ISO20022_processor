@@ -15,6 +15,9 @@ namespace Wolff.FinanceTools.Base
             if (string.IsNullOrEmpty(bban))
                 throw new ArgumentException("BBAN cannot be null or empty.", nameof(bban));
 
+            if (!bban.EndsWith("00"))
+                throw new ArgumentException("BBAN must end with '00' for check digit calculation.", nameof(bban));
+
             string convertedBban = "";
 
             foreach (char ch in bban)
